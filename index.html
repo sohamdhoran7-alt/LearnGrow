@@ -2,137 +2,140 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LearnGrow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LearnGrow - Physics</title>
 
 <style>
-*{box-sizing:border-box}
-body{
+*{
+  box-sizing:border-box;
   margin:0;
+  padding:0;
   font-family:Arial,sans-serif;
+}
+
+body{
   background:#f4f7fb;
   color:#172033;
-  transition:.3s;
 }
-header{
-  background:#2563eb;
-  color:white;
-  padding:25px 18px;
-  border-radius:0 0 25px 25px;
-}
-header h1{margin:0;font-size:30px}
-header p{margin:6px 0 18px;opacity:.9}
 
-.search{
-  width:100%;
-  padding:14px;
-  border:0;
-  border-radius:12px;
-  font-size:16px;
-  outline:none;
+header{
+  background:#182848;
+  color:white;
+  padding:22px 16px;
+  text-align:center;
+}
+
+header h1{
+  font-size:28px;
+}
+
+header p{
+  margin-top:6px;
+  opacity:.85;
 }
 
 .container{
   max-width:900px;
   margin:auto;
-  padding:18px;
+  padding:20px 15px;
 }
 
-h2{margin-top:25px}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-
-.card{
-  background:white;
-  padding:18px;
-  border-radius:16px;
-  box-shadow:0 3px 12px #00000012;
-  cursor:pointer;
-  transition:.2s;
-}
-.card:hover{transform:translateY(-2px)}
-.card h3{margin:5px 0}
-.card p{margin:5px 0;color:#667085}
-
-.icon{font-size:30px}
-
-button{
-  border:0;
-  border-radius:10px;
-  padding:11px 15px;
-  cursor:pointer;
-  background:#2563eb;
-  color:white;
-  font-size:14px;
-  margin:4px;
-}
-
-.secondary{
-  background:#e8eefc;
-  color:#2563eb;
-}
-
-.section{
-  display:none;
-  background:white;
-  padding:18px;
-  border-radius:18px;
-  margin-top:18px;
-  box-shadow:0 3px 12px #00000012;
+.search{
+  width:100%;
+  padding:14px;
+  border:1px solid #ccc;
+  border-radius:12px;
+  margin-bottom:20px;
+  font-size:16px;
 }
 
 .chapter{
-  padding:14px;
-  border-bottom:1px solid #eee;
+  background:white;
+  padding:18px;
+  margin:12px 0;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
   cursor:pointer;
 }
-.chapter:last-child{border-bottom:0}
-.chapter:hover{background:#f5f8ff}
 
-.subject-title{
-  color:#2563eb;
+.chapter h3{
+  margin-bottom:6px;
 }
 
-.progress{
-  height:10px;
-  background:#e5e7eb;
+.chapter p{
+  color:#667085;
+}
+
+.content{
+  display:none;
+  background:white;
+  margin-top:15px;
+  padding:20px;
+  border-radius:15px;
+  line-height:1.7;
+}
+
+.content h2{
+  margin-bottom:12px;
+}
+
+.content h3{
+  margin-top:18px;
+  margin-bottom:8px;
+}
+
+.formula{
+  background:#eef3ff;
+  padding:12px;
   border-radius:10px;
-  overflow:hidden;
+  margin:8px 0;
+  font-weight:bold;
 }
-.progress div{
-  height:100%;
-  width:35%;
-  background:#2563eb;
+
+.question{
+  background:#f7f7f7;
+  padding:12px;
+  border-radius:10px;
+  margin:8px 0;
+}
+
+button{
+  background:#182848;
+  color:white;
+  border:none;
+  padding:11px 15px;
+  border-radius:9px;
+  cursor:pointer;
+  margin-top:10px;
 }
 
 footer{
   text-align:center;
-  padding:30px;
+  padding:25px;
   color:#667085;
 }
 
-/* DARK MODE */
 .dark{
-  background:#101827;
-  color:#f5f7fa;
-}
-.dark .card,
-.dark .section{
-  background:#182334;
+  background:#101828;
   color:white;
 }
-.dark .card p{color:#b8c1cf}
-.dark .chapter{border-color:#334155}
-.dark .chapter:hover{background:#202e42}
-.dark .secondary{
-  background:#26364e;
-  color:#8db4ff;
+
+.dark .chapter,
+.dark .content{
+  background:#1d2939;
 }
-.dark .progress{background:#334155}
+
+.dark .chapter p{
+  color:#cbd5e1;
+}
+
+.dark .question{
+  background:#273449;
+}
+
+.dark .formula{
+  background:#243b64;
+}
 </style>
 </head>
 
@@ -141,370 +144,312 @@ footer{
 <header>
   <h1>📚 LearnGrow</h1>
   <p>12th Maharashtra HSC Study App</p>
-
-  <input
-    class="search"
-    id="search"
-    placeholder="🔍 Search chapters, subjects..."
-    onkeyup="searchContent()"
-  >
+  <p>Physics</p>
+  <button onclick="toggleDark()">🌙 Dark Mode</button>
 </header>
 
 <div class="container">
 
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <h2>🎓 Study Dashboard</h2>
-    <button class="secondary" onclick="darkMode()">🌙</button>
-  </div>
+<input
+  class="search"
+  type="text"
+  id="search"
+  placeholder="Search Physics chapters..."
+  onkeyup="searchChapters()"
+>
 
-  <div class="grid">
+<div id="chapters">
 
-    <div class="card" onclick="showSubject('Biology')">
-      <div class="icon">🧬</div>
-      <h3>Biology</h3>
-      <p>HSC Chapters</p>
-    </div>
+<div class="chapter" onclick="openChapter('rotational')">
+<h3>1. Rotational Dynamics</h3>
+<p>Torque, angular motion, moment of inertia and rolling motion.</p>
+</div>
 
-    <div class="card" onclick="showSubject('Physics')">
-      <div class="icon">⚛️</div>
-      <h3>Physics</h3>
-      <p>HSC Chapters</p>
-    </div>
+<div class="chapter">
+<h3>2. Mechanical Properties of Fluids</h3>
+<p>Pressure, viscosity, surface tension and fluid dynamics.</p>
+</div>
 
-    <div class="card" onclick="showSubject('Chemistry')">
-      <div class="icon">🧪</div>
-      <h3>Chemistry</h3>
-      <p>HSC Chapters</p>
-    </div>
+<div class="chapter">
+<h3>3. Kinetic Theory of Gases and Radiation</h3>
+<p>Kinetic theory, gas molecules and radiation.</p>
+</div>
 
-    <div class="card" onclick="showSubject('Mathematics')">
-      <div class="icon">📐</div>
-      <h3>Mathematics</h3>
-      <p>HSC Chapters</p>
-    </div>
+<div class="chapter">
+<h3>4. Thermodynamics</h3>
+<p>Heat, work, internal energy and thermodynamic processes.</p>
+</div>
 
-  </div>
+<div class="chapter">
+<h3>5. Oscillations</h3>
+<p>Simple harmonic motion and oscillatory systems.</p>
+</div>
 
-  <h2>🚀 Practice</h2>
+<div class="chapter">
+<h3>6. Superposition of Waves</h3>
+<p>Wave interference, beats and stationary waves.</p>
+</div>
 
-  <div class="grid">
+<div class="chapter">
+<h3>7. Wave Optics</h3>
+<p>Interference, diffraction and polarization.</p>
+</div>
 
-    <div class="card" onclick="openSection('mcq')">
-      <div class="icon">❓</div>
-      <h3>MCQ Practice</h3>
-      <p>Test your knowledge</p>
-    </div>
+<div class="chapter">
+<h3>8. Electrostatics</h3>
+<p>Electric charge, electric field and potential.</p>
+</div>
 
-    <div class="card" onclick="openSection('important')">
-      <div class="icon">⭐</div>
-      <h3>Important Questions</h3>
-      <p>Exam preparation</p>
-    </div>
+<div class="chapter">
+<h3>9. Current Electricity</h3>
+<p>Current, resistance, circuits and electrical energy.</p>
+</div>
 
-    <div class="card" onclick="openSection('pyq')">
-      <div class="icon">📝</div>
-      <h3>PYQ</h3>
-      <p>Previous Year Questions</p>
-    </div>
+<div class="chapter">
+<h3>10. Magnetic Fields due to Electric Current</h3>
+<p>Magnetic field, Biot-Savart law and Ampere's law.</p>
+</div>
 
-    <div class="card" onclick="openSection('cet')">
-      <div class="icon">🎯</div>
-      <h3>MHT-CET</h3>
-      <p>CET practice</p>
-    </div>
+<div class="chapter">
+<h3>11. Magnetic Materials</h3>
+<p>Magnetic properties and types of magnetic materials.</p>
+</div>
 
-    <div class="card" onclick="openSection('practical')">
-      <div class="icon">🔬</div>
-      <h3>Practical + Viva</h3>
-      <p>Practical preparation</p>
-    </div>
+<div class="chapter">
+<h3>12. Electromagnetic Induction</h3>
+<p>Faraday's law, Lenz's law and induced emf.</p>
+</div>
 
-    <div class="card" onclick="openSection('revision')">
-      <div class="icon">⚡</div>
-      <h3>Quick Revision</h3>
-      <p>Fast revision</p>
-    </div>
+<div class="chapter">
+<h3>13. AC Circuits</h3>
+<p>Alternating current, reactance and impedance.</p>
+</div>
 
-  </div>
+<div class="chapter">
+<h3>14. Dual Nature of Radiation and Matter</h3>
+<p>Photoelectric effect and matter waves.</p>
+</div>
 
-  <!-- SUBJECT SECTION -->
+<div class="chapter">
+<h3>15. Structure of Atoms and Nuclei</h3>
+<p>Atomic models, radioactivity and nuclear physics.</p>
+</div>
 
-  <div id="subjectSection" class="section">
-    <button onclick="closeSections()">← Back</button>
-    <h2 id="subjectTitle" class="subject-title"></h2>
-    <div id="chapterList"></div>
-  </div>
+<div class="chapter">
+<h3>16. Semiconductor Devices</h3>
+<p>Semiconductors, diodes and electronic devices.</p>
+</div>
 
-  <!-- MCQ -->
+</div>
 
-  <div id="mcq" class="section">
-    <button onclick="closeSections()">← Back</button>
-    <h2>❓ MCQ Practice</h2>
+<div id="rotational" class="content">
 
-    <p><b>Q1. Which organelle is known as the powerhouse of the cell?</b></p>
+<h2>Chapter 1: Rotational Dynamics</h2>
 
-    <button onclick="answer(false)">Nucleus</button>
-    <button onclick="answer(true)">Mitochondria</button>
-    <button onclick="answer(false)">Ribosome</button>
+<h3>📖 Notes</h3>
 
-    <p id="result"></p>
-  </div>
+<p>
+Rotational motion is the motion of a body around a fixed axis.
+Examples include the rotation of a wheel, fan and Earth around its axis.
+</p>
 
-  <!-- IMPORTANT -->
+<h3>Angular Displacement</h3>
+<p>
+Angular displacement is the angle through which a body rotates about an axis.
+It is represented by θ and measured in radians.
+</p>
 
-  <div id="important" class="section">
-    <button onclick="closeSections()">← Back</button>
-    <h2>⭐ Important Questions</h2>
+<h3>Angular Velocity</h3>
+<p>
+Angular velocity is the rate of change of angular displacement.
+</p>
 
-    <div class="chapter">Explain the structure of human heart.</div>
-    <div class="chapter">Explain mechanism of breathing.</div>
-    <div class="chapter">Explain DNA replication.</div>
-    <div class="chapter">Explain semiconductor diode.</div>
-    <div class="chapter">Explain chemical equilibrium.</div>
-  </div>
+<div class="formula">
+ω = Δθ / Δt
+</div>
 
-  <!-- PYQ -->
+<h3>Angular Acceleration</h3>
+<p>
+Angular acceleration is the rate of change of angular velocity.
+</p>
 
-  <div id="pyq" class="section">
-    <button onclick="closeSections()">← Back</button>
-    <h2>📝 Previous Year Questions</h2>
+<div class="formula">
+α = Δω / Δt
+</div>
 
-    <div class="chapter">2026 HSC Question Practice</div>
-    <div class="chapter">2025 HSC Question Practice</div>
-    <div class="chapter">2024 HSC Question Practice</div>
-    <div class="chapter">2023 HSC Question Practice</div>
-    <div class="chapter">2022 HSC Question Practice</div>
-  </div>
+<h3>Torque</h3>
+<p>
+Torque is the turning effect of a force about an axis.
+</p>
 
-  <!-- CET -->
+<div class="formula">
+τ = rF sinθ
+</div>
 
-  <div id="cet" class="section">
-    <button onclick="closeSections()">← Back</button>
-    <h2>🎯 MHT-CET Practice</h2>
+<h3>Moment of Inertia</h3>
+<p>
+Moment of inertia is the rotational analogue of mass. It represents the
+resistance of a body to change in its rotational motion.
+</p>
 
-    <button>Physics MCQs</button>
-    <button>Chemistry MCQs</button>
-    <button>Biology MCQs</button>
-    <button>Mock Test</button>
-  </div>
+<div class="formula">
+I = Σmr²
+</div>
 
-  <!-- PRACTICAL -->
+<h3>Angular Momentum</h3>
+<p>
+Angular momentum of a rotating body is the product of moment of inertia
+and angular velocity.
+</p>
 
-  <div id="practical" class="section">
-    <button onclick="closeSections()">← Back</button>
-    <h2>🔬 Practical + Viva</h2>
+<div class="formula">
+L = Iω
+</div>
 
-    <div class="chapter">Biology Practical</div>
-    <div class="chapter">Physics Practical</div>
-    <div class="chapter">Chemistry Practical</div>
-    <div class="chapter">Viva Questions</div>
-  </div>
+<h3>Rotational Kinetic Energy</h3>
 
-  <!-- REVISION -->
+<div class="formula">
+K = ½Iω²
+</div>
 
-  <div id="revision" class="section">
-    <button onclick="closeSections()">← Back</button>
-    <h2>⚡ Quick Revision</h2>
+<h3>Newton's Second Law for Rotational Motion</h3>
 
-    <div class="chapter">🧬 Biology – Quick Notes</div>
-    <div class="chapter">⚛️ Physics – Formula Revision</div>
-    <div class="chapter">🧪 Chemistry – Reactions</div>
-    <div class="chapter">📐 Mathematics – Important Formulae</div>
-  </div>
+<div class="formula">
+τ = Iα
+</div>
 
-  <h2>📊 My Progress</h2>
+<h3>Radius of Gyration</h3>
 
-  <div class="card">
-    <p>Study Progress</p>
-    <div class="progress">
-      <div></div>
-    </div>
-    <p>35% completed</p>
-  </div>
+<p>
+Radius of gyration is the distance from the axis at which the whole mass
+of a body can be assumed to be concentrated without changing its moment
+of inertia.
+</p>
+
+<div class="formula">
+I = Mk²
+</div>
+
+<h3>🧮 Important Formulas</h3>
+
+<div class="formula">ω = Δθ / Δt</div>
+<div class="formula">α = Δω / Δt</div>
+<div class="formula">τ = rF sinθ</div>
+<div class="formula">I = Σmr²</div>
+<div class="formula">L = Iω</div>
+<div class="formula">τ = Iα</div>
+<div class="formula">K = ½Iω²</div>
+<div class="formula">I = Mk²</div>
+
+<h3>❓ Important Questions</h3>
+
+<div class="question">
+1. Define torque and write its SI unit.
+</div>
+
+<div class="question">
+2. Define moment of inertia.
+</div>
+
+<div class="question">
+3. What is radius of gyration?
+</div>
+
+<div class="question">
+4. State the relation between torque and angular acceleration.
+</div>
+
+<div class="question">
+5. Derive the expression for rotational kinetic energy.
+</div>
+
+<h3>📝 MCQs</h3>
+
+<div class="question">
+<b>1. The SI unit of torque is:</b><br>
+A) Joule<br>
+B) Newton metre<br>
+C) Watt<br>
+D) Pascal<br><br>
+<b>Answer: B) Newton metre</b>
+</div>
+
+<div class="question">
+<b>2. Angular momentum is given by:</b><br>
+A) mv<br>
+B) Iω<br>
+C) ma<br>
+D) Fd<br><br>
+<b>Answer: B) Iω</b>
+</div>
+
+<div class="question">
+<b>3. Rotational kinetic energy is:</b><br>
+A) ½mv²<br>
+B) mgh<br>
+C) ½Iω²<br>
+D) Fd<br><br>
+<b>Answer: C) ½Iω²</b>
+</div>
+
+<h3>🔄 Quick Revision</h3>
+
+<p>
+• Rotational motion occurs about an axis.<br>
+• Angular velocity tells how quickly angular displacement changes.<br>
+• Torque produces rotational acceleration.<br>
+• Moment of inertia is the rotational analogue of mass.<br>
+• Angular momentum is L = Iω.<br>
+• Rotational kinetic energy is K = ½Iω².<br>
+• For rotational motion, τ = Iα.
+</p>
+
+<button onclick="closeChapter()">← Back to Chapters</button>
+
+</div>
 
 </div>
 
 <footer>
-  <b>LearnGrow</b><br>
-  12th Maharashtra HSC Study App<br><br>
-  Developed by <b>Soham Dhoran</b>
+Developed by Soham Dhoran<br>
+LearnGrow © 2026
 </footer>
 
 <script>
 
-const subjects = {
-
-Biology:[
-"Reproduction in Lower and Higher Plants",
-"Reproduction in Lower and Higher Animals",
-"Inheritance and Variation",
-"Molecular Basis of Inheritance",
-"Origin and Evolution",
-"Plant Water Relation",
-"Plant Growth and Mineral Nutrition",
-"Respiration and Circulation",
-"Control and Coordination",
-"Human Health and Diseases",
-"Animal Husbandry",
-"Enhancement of Food Production",
-"Biotechnology",
-"Ecology and Environment"
-],
-
-Physics:[
-"Rotational Dynamics",
-"Mechanical Properties of Fluids",
-"Thermal Properties of Matter",
-"Thermodynamics",
-"Oscillations",
-"Superposition of Waves",
-"Wave Optics",
-"Electrostatics",
-"Current Electricity",
-"Magnetic Fields due to Electric Current",
-"Magnetism",
-"Electromagnetic Induction",
-"AC Circuits",
-"Dual Nature of Radiation and Matter",
-"Structure of Atoms and Nuclei",
-"Semiconductor Devices"
-],
-
-Chemistry:[
-"Solid State",
-"Solutions",
-"Ionic Equilibria",
-"Chemical Thermodynamics",
-"Electrochemistry",
-"Chemical Kinetics",
-"Elements of Groups 16, 17 and 18",
-"Transition and Inner Transition Elements",
-"Coordination Compounds",
-"Halogen Derivatives",
-"Alcohols, Phenols and Ethers",
-"Aldehydes, Ketones and Carboxylic Acids",
-"Amines",
-"Biomolecules",
-"Introduction to Polymer Chemistry",
-"Green Chemistry and Nanochemistry"
-],
-
-Mathematics:[
-"Mathematical Logic",
-"Mathematical Reasoning",
-"Trigonometric Functions",
-"Pair of Straight Lines",
-"Circle",
-"Conic Sections",
-"Vectors",
-"Three Dimensional Geometry",
-"Line and Plane",
-"Linear Programming",
-"Continuity",
-"Differentiation",
-"Applications of Derivatives",
-"Indefinite Integration",
-"Definite Integration",
-"Applications of Definite Integration",
-"Differential Equations",
-"Probability Distribution",
-"Binomial Distribution"
-]
-
-};
-
-function showSubject(subject){
-
-closeSections();
-
-document.getElementById("subjectSection").style.display="block";
-
-document.getElementById("subjectTitle").innerText=
-"📚 "+subject+" Chapters";
-
-let list="";
-
-subjects[subject].forEach((chapter,index)=>{
-
-list+=`
-<div class="chapter" onclick="openChapter('${chapter}')">
-<b>${index+1}. ${chapter}</b>
-</div>
-`;
-
-});
-
-document.getElementById("chapterList").innerHTML=list;
-
+function openChapter(id){
+  document.getElementById("chapters").style.display="none";
+  document.getElementById(id).style.display="block";
+  window.scrollTo(0,0);
 }
 
-function openChapter(chapter){
-
-alert(
-"📖 "+chapter+
-"\n\nNotes, important questions and MCQs for this chapter will be added here."
-);
-
+function closeChapter(){
+  document.getElementById("rotational").style.display="none";
+  document.getElementById("chapters").style.display="block";
+  window.scrollTo(0,0);
 }
 
-function openSection(id){
-
-closeSections();
-
-document.getElementById(id).style.display="block";
-
+function toggleDark(){
+  document.body.classList.toggle("dark");
 }
 
-function closeSections(){
+function searchChapters(){
+  let input=document.getElementById("search").value.toLowerCase();
+  let chapters=document.querySelectorAll(".chapter");
 
-document.querySelectorAll(".section").forEach(
-x=>x.style.display="none"
-);
+  chapters.forEach(function(chapter){
+    let text=chapter.innerText.toLowerCase();
 
-}
-
-function darkMode(){
-
-document.body.classList.toggle("dark");
-
-}
-
-function answer(correct){
-
-let result=document.getElementById("result");
-
-if(correct){
-
-result.innerHTML="✅ Correct! Well done.";
-
-}else{
-
-result.innerHTML="❌ Incorrect. Try again!";
-
-}
-
-}
-
-function searchContent(){
-
-let value=document
-.getElementById("search")
-.value
-.toLowerCase();
-
-document.querySelectorAll(".card,.chapter")
-.forEach(item=>{
-
-let text=item.innerText.toLowerCase();
-
-item.style.display=
-text.includes(value) ? "" : "none";
-
-});
-
+    if(text.includes(input)){
+      chapter.style.display="block";
+    }else{
+      chapter.style.display="none";
+    }
+  });
 }
 
 </script>
 
 </body>
 </html>
+
