@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LearnGrow</title>
 
 <style>
@@ -10,368 +10,498 @@
 body{
   margin:0;
   font-family:Arial,sans-serif;
-  background:#f5f7fb;
+  background:#f4f7fb;
   color:#172033;
+  transition:.3s;
 }
 header{
   background:#2563eb;
   color:white;
-  padding:22px 18px;
+  padding:25px 18px;
   border-radius:0 0 25px 25px;
 }
-.logo{
-  font-size:28px;
-  font-weight:800;
+header h1{margin:0;font-size:30px}
+header p{margin:6px 0 18px;opacity:.9}
+
+.search{
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:12px;
+  font-size:16px;
+  outline:none;
 }
-.subtitle{
-  margin-top:7px;
-  opacity:.9;
-}
+
 .container{
   max-width:900px;
   margin:auto;
   padding:18px;
 }
-.search{
-  width:100%;
-  padding:15px;
-  border:0;
-  border-radius:14px;
-  margin:15px 0;
-  box-shadow:0 3px 15px #00000012;
-  font-size:15px;
-}
-.section-title{
-  font-size:22px;
-  margin:22px 0 12px;
-}
+
+h2{margin-top:25px}
+
 .grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:12px;
 }
+
 .card{
   background:white;
   padding:18px;
-  border-radius:18px;
-  box-shadow:0 3px 15px #00000010;
+  border-radius:16px;
+  box-shadow:0 3px 12px #00000012;
   cursor:pointer;
   transition:.2s;
 }
-.card:hover{
-  transform:translateY(-3px);
-}
-.icon{
-  font-size:28px;
-}
-.card h3{
-  margin:10px 0 5px;
-}
-.card p{
-  margin:0;
-  color:#667085;
-  font-size:13px;
-}
-.subject{
-  background:white;
-  padding:16px;
-  margin:10px 0;
-  border-radius:15px;
-  box-shadow:0 2px 10px #0000000d;
-}
+.card:hover{transform:translateY(-2px)}
+.card h3{margin:5px 0}
+.card p{margin:5px 0;color:#667085}
+
+.icon{font-size:30px}
+
 button{
   border:0;
+  border-radius:10px;
+  padding:11px 15px;
+  cursor:pointer;
   background:#2563eb;
   color:white;
-  padding:12px 18px;
-  border-radius:12px;
-  cursor:pointer;
-  font-weight:bold;
+  font-size:14px;
+  margin:4px;
 }
-#content{
+
+.secondary{
+  background:#e8eefc;
+  color:#2563eb;
+}
+
+.section{
   display:none;
-}
-.back{
-  margin-bottom:15px;
-}
-.question{
   background:white;
   padding:18px;
-  border-radius:16px;
-  margin:12px 0;
-  box-shadow:0 2px 10px #0000000d;
+  border-radius:18px;
+  margin-top:18px;
+  box-shadow:0 3px 12px #00000012;
 }
-.option{
-  display:block;
-  background:#f1f5f9;
-  padding:12px;
+
+.chapter{
+  padding:14px;
+  border-bottom:1px solid #eee;
+  cursor:pointer;
+}
+.chapter:last-child{border-bottom:0}
+.chapter:hover{background:#f5f8ff}
+
+.subject-title{
+  color:#2563eb;
+}
+
+.progress{
+  height:10px;
+  background:#e5e7eb;
   border-radius:10px;
-  margin:8px 0;
+  overflow:hidden;
 }
+.progress div{
+  height:100%;
+  width:35%;
+  background:#2563eb;
+}
+
 footer{
   text-align:center;
-  padding:30px 10px;
+  padding:30px;
   color:#667085;
 }
-@media(max-width:500px){
-  .grid{grid-template-columns:1fr 1fr}
+
+/* DARK MODE */
+.dark{
+  background:#101827;
+  color:#f5f7fa;
 }
+.dark .card,
+.dark .section{
+  background:#182334;
+  color:white;
+}
+.dark .card p{color:#b8c1cf}
+.dark .chapter{border-color:#334155}
+.dark .chapter:hover{background:#202e42}
+.dark .secondary{
+  background:#26364e;
+  color:#8db4ff;
+}
+.dark .progress{background:#334155}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">📚 LearnGrow</div>
-  <div class="subtitle">12th Maharashtra HSC Study App</div>
+  <h1>📚 LearnGrow</h1>
+  <p>12th Maharashtra HSC Study App</p>
+
+  <input
+    class="search"
+    id="search"
+    placeholder="🔍 Search chapters, subjects..."
+    onkeyup="searchContent()"
+  >
 </header>
 
 <div class="container">
 
-<input class="search" id="search"
-placeholder="🔍 Search chapter, question or subject..."
-onkeyup="searchContent()">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <h2>🎓 Study Dashboard</h2>
+    <button class="secondary" onclick="darkMode()">🌙</button>
+  </div>
 
-<div id="home">
+  <div class="grid">
 
-<h2 class="section-title">What do you want to study?</h2>
+    <div class="card" onclick="showSubject('Biology')">
+      <div class="icon">🧬</div>
+      <h3>Biology</h3>
+      <p>HSC Chapters</p>
+    </div>
 
-<div class="grid">
+    <div class="card" onclick="showSubject('Physics')">
+      <div class="icon">⚛️</div>
+      <h3>Physics</h3>
+      <p>HSC Chapters</p>
+    </div>
 
-<div class="card" onclick="openSection('subjects')">
-<div class="icon">📚</div>
-<h3>Subjects</h3>
-<p>HSC syllabus & chapters</p>
-</div>
+    <div class="card" onclick="showSubject('Chemistry')">
+      <div class="icon">🧪</div>
+      <h3>Chemistry</h3>
+      <p>HSC Chapters</p>
+    </div>
 
-<div class="card" onclick="openSection('pyq')">
-<div class="icon">📝</div>
-<h3>PYQ</h3>
-<p>Previous Year Questions</p>
-</div>
+    <div class="card" onclick="showSubject('Mathematics')">
+      <div class="icon">📐</div>
+      <h3>Mathematics</h3>
+      <p>HSC Chapters</p>
+    </div>
 
-<div class="card" onclick="openSection('mcq')">
-<div class="icon">❓</div>
-<h3>MCQ</h3>
-<p>Chapter-wise practice</p>
-</div>
+  </div>
 
-<div class="card" onclick="openSection('important')">
-<div class="icon">⭐</div>
-<h3>Important</h3>
-<p>Important questions</p>
-</div>
+  <h2>🚀 Practice</h2>
 
-<div class="card" onclick="openSection('cet')">
-<div class="icon">🎯</div>
-<h3>MHT-CET</h3>
-<p>CET practice questions</p>
-</div>
+  <div class="grid">
 
-<div class="card" onclick="openSection('practical')">
-<div class="icon">🧪</div>
-<h3>Practical</h3>
-<p>Viva & experiments</p>
-</div>
+    <div class="card" onclick="openSection('mcq')">
+      <div class="icon">❓</div>
+      <h3>MCQ Practice</h3>
+      <p>Test your knowledge</p>
+    </div>
 
-<div class="card" onclick="openSection('quiz')">
-<div class="icon">🧠</div>
-<h3>Quiz</h3>
-<p>Test your knowledge</p>
-</div>
+    <div class="card" onclick="openSection('important')">
+      <div class="icon">⭐</div>
+      <h3>Important Questions</h3>
+      <p>Exam preparation</p>
+    </div>
 
-<div class="card" onclick="openSection('revision')">
-<div class="icon">⚡</div>
-<h3>Quick Revision</h3>
-<p>Fast exam revision</p>
-</div>
+    <div class="card" onclick="openSection('pyq')">
+      <div class="icon">📝</div>
+      <h3>PYQ</h3>
+      <p>Previous Year Questions</p>
+    </div>
 
-</div>
+    <div class="card" onclick="openSection('cet')">
+      <div class="icon">🎯</div>
+      <h3>MHT-CET</h3>
+      <p>CET practice</p>
+    </div>
 
-<h2 class="section-title">📊 Your Study Tools</h2>
+    <div class="card" onclick="openSection('practical')">
+      <div class="icon">🔬</div>
+      <h3>Practical + Viva</h3>
+      <p>Practical preparation</p>
+    </div>
 
-<div class="grid">
+    <div class="card" onclick="openSection('revision')">
+      <div class="icon">⚡</div>
+      <h3>Quick Revision</h3>
+      <p>Fast revision</p>
+    </div>
 
-<div class="card">
-<div class="icon">🔖</div>
-<h3>Bookmarks</h3>
-<p>Save important questions</p>
-</div>
+  </div>
 
-<div class="card">
-<div class="icon">📈</div>
-<h3>Progress</h3>
-<p>Track your preparation</p>
-</div>
+  <!-- SUBJECT SECTION -->
 
-<div class="card">
-<div class="icon">🏆</div>
-<h3>Mock Test</h3>
-<p>Board & CET tests</p>
-</div>
+  <div id="subjectSection" class="section">
+    <button onclick="closeSections()">← Back</button>
+    <h2 id="subjectTitle" class="subject-title"></h2>
+    <div id="chapterList"></div>
+  </div>
 
-<div class="card">
-<div class="icon">📖</div>
-<h3>Study PDFs</h3>
-<p>Notes & legal/free resources</p>
-</div>
+  <!-- MCQ -->
 
-</div>
+  <div id="mcq" class="section">
+    <button onclick="closeSections()">← Back</button>
+    <h2>❓ MCQ Practice</h2>
 
-</div>
+    <p><b>Q1. Which organelle is known as the powerhouse of the cell?</b></p>
 
+    <button onclick="answer(false)">Nucleus</button>
+    <button onclick="answer(true)">Mitochondria</button>
+    <button onclick="answer(false)">Ribosome</button>
 
-<div id="content">
+    <p id="result"></p>
+  </div>
 
-<button class="back" onclick="goHome()">← Back</button>
+  <!-- IMPORTANT -->
 
-<div id="sectionContent"></div>
+  <div id="important" class="section">
+    <button onclick="closeSections()">← Back</button>
+    <h2>⭐ Important Questions</h2>
 
-</div>
+    <div class="chapter">Explain the structure of human heart.</div>
+    <div class="chapter">Explain mechanism of breathing.</div>
+    <div class="chapter">Explain DNA replication.</div>
+    <div class="chapter">Explain semiconductor diode.</div>
+    <div class="chapter">Explain chemical equilibrium.</div>
+  </div>
+
+  <!-- PYQ -->
+
+  <div id="pyq" class="section">
+    <button onclick="closeSections()">← Back</button>
+    <h2>📝 Previous Year Questions</h2>
+
+    <div class="chapter">2026 HSC Question Practice</div>
+    <div class="chapter">2025 HSC Question Practice</div>
+    <div class="chapter">2024 HSC Question Practice</div>
+    <div class="chapter">2023 HSC Question Practice</div>
+    <div class="chapter">2022 HSC Question Practice</div>
+  </div>
+
+  <!-- CET -->
+
+  <div id="cet" class="section">
+    <button onclick="closeSections()">← Back</button>
+    <h2>🎯 MHT-CET Practice</h2>
+
+    <button>Physics MCQs</button>
+    <button>Chemistry MCQs</button>
+    <button>Biology MCQs</button>
+    <button>Mock Test</button>
+  </div>
+
+  <!-- PRACTICAL -->
+
+  <div id="practical" class="section">
+    <button onclick="closeSections()">← Back</button>
+    <h2>🔬 Practical + Viva</h2>
+
+    <div class="chapter">Biology Practical</div>
+    <div class="chapter">Physics Practical</div>
+    <div class="chapter">Chemistry Practical</div>
+    <div class="chapter">Viva Questions</div>
+  </div>
+
+  <!-- REVISION -->
+
+  <div id="revision" class="section">
+    <button onclick="closeSections()">← Back</button>
+    <h2>⚡ Quick Revision</h2>
+
+    <div class="chapter">🧬 Biology – Quick Notes</div>
+    <div class="chapter">⚛️ Physics – Formula Revision</div>
+    <div class="chapter">🧪 Chemistry – Reactions</div>
+    <div class="chapter">📐 Mathematics – Important Formulae</div>
+  </div>
+
+  <h2>📊 My Progress</h2>
+
+  <div class="card">
+    <p>Study Progress</p>
+    <div class="progress">
+      <div></div>
+    </div>
+    <p>35% completed</p>
+  </div>
 
 </div>
 
 <footer>
-LearnGrow<br>
-Developed by <b>Soham Dhoran</b>
+  <b>LearnGrow</b><br>
+  12th Maharashtra HSC Study App<br><br>
+  Developed by <b>Soham Dhoran</b>
 </footer>
-
 
 <script>
 
-function goHome(){
- document.getElementById("home").style.display="block";
- document.getElementById("content").style.display="none";
+const subjects = {
+
+Biology:[
+"Reproduction in Lower and Higher Plants",
+"Reproduction in Lower and Higher Animals",
+"Inheritance and Variation",
+"Molecular Basis of Inheritance",
+"Origin and Evolution",
+"Plant Water Relation",
+"Plant Growth and Mineral Nutrition",
+"Respiration and Circulation",
+"Control and Coordination",
+"Human Health and Diseases",
+"Animal Husbandry",
+"Enhancement of Food Production",
+"Biotechnology",
+"Ecology and Environment"
+],
+
+Physics:[
+"Rotational Dynamics",
+"Mechanical Properties of Fluids",
+"Thermal Properties of Matter",
+"Thermodynamics",
+"Oscillations",
+"Superposition of Waves",
+"Wave Optics",
+"Electrostatics",
+"Current Electricity",
+"Magnetic Fields due to Electric Current",
+"Magnetism",
+"Electromagnetic Induction",
+"AC Circuits",
+"Dual Nature of Radiation and Matter",
+"Structure of Atoms and Nuclei",
+"Semiconductor Devices"
+],
+
+Chemistry:[
+"Solid State",
+"Solutions",
+"Ionic Equilibria",
+"Chemical Thermodynamics",
+"Electrochemistry",
+"Chemical Kinetics",
+"Elements of Groups 16, 17 and 18",
+"Transition and Inner Transition Elements",
+"Coordination Compounds",
+"Halogen Derivatives",
+"Alcohols, Phenols and Ethers",
+"Aldehydes, Ketones and Carboxylic Acids",
+"Amines",
+"Biomolecules",
+"Introduction to Polymer Chemistry",
+"Green Chemistry and Nanochemistry"
+],
+
+Mathematics:[
+"Mathematical Logic",
+"Mathematical Reasoning",
+"Trigonometric Functions",
+"Pair of Straight Lines",
+"Circle",
+"Conic Sections",
+"Vectors",
+"Three Dimensional Geometry",
+"Line and Plane",
+"Linear Programming",
+"Continuity",
+"Differentiation",
+"Applications of Derivatives",
+"Indefinite Integration",
+"Definite Integration",
+"Applications of Definite Integration",
+"Differential Equations",
+"Probability Distribution",
+"Binomial Distribution"
+]
+
+};
+
+function showSubject(subject){
+
+closeSections();
+
+document.getElementById("subjectSection").style.display="block";
+
+document.getElementById("subjectTitle").innerText=
+"📚 "+subject+" Chapters";
+
+let list="";
+
+subjects[subject].forEach((chapter,index)=>{
+
+list+=`
+<div class="chapter" onclick="openChapter('${chapter}')">
+<b>${index+1}. ${chapter}</b>
+</div>
+`;
+
+});
+
+document.getElementById("chapterList").innerHTML=list;
+
 }
 
-function openSection(type){
+function openChapter(chapter){
 
- document.getElementById("home").style.display="none";
- document.getElementById("content").style.display="block";
+alert(
+"📖 "+chapter+
+"\n\nNotes, important questions and MCQs for this chapter will be added here."
+);
 
- let box=document.getElementById("sectionContent");
+}
 
- if(type==="subjects"){
- box.innerHTML=`
- <h2>📚 Maharashtra HSC Subjects</h2>
+function openSection(id){
 
- <div class="subject">🔬 Physics<br>
- <small>Chapter-wise study material</small></div>
+closeSections();
 
- <div class="subject">⚗️ Chemistry<br>
- <small>Physical, Organic & Inorganic Chemistry</small></div>
+document.getElementById(id).style.display="block";
 
- <div class="subject">🧬 Biology<br>
- <small>Botany & Zoology</small></div>
+}
 
- <div class="subject">📐 Mathematics<br>
- <small>Chapter-wise practice</small></div>
+function closeSections(){
 
- <div class="subject">📖 English<br>
- <small>Writing & literature</small></div>
- `;
- }
+document.querySelectorAll(".section").forEach(
+x=>x.style.display="none"
+);
 
- if(type==="pyq"){
- box.innerHTML=`
- <h2>📝 Previous Year Questions</h2>
- <div class="subject">HSC PYQ – Physics</div>
- <div class="subject">HSC PYQ – Chemistry</div>
- <div class="subject">HSC PYQ – Biology</div>
- <div class="subject">HSC PYQ – Mathematics</div>
- <p>Year-wise papers and solutions will be added here.</p>
- `;
- }
+}
 
- if(type==="mcq"){
- box.innerHTML=`
- <h2>❓ MCQ Practice</h2>
+function darkMode(){
 
- <div class="question">
- <b>Q1. Which organelle is known as the powerhouse of the cell?</b>
- <div class="option">A. Nucleus</div>
- <div class="option">B. Mitochondria</div>
- <div class="option">C. Ribosome</div>
- <div class="option">D. Golgi body</div>
- <button onclick="alert('Correct Answer: B. Mitochondria')">Show Answer</button>
- </div>
+document.body.classList.toggle("dark");
 
- <div class="question">
- <b>Q2. What is the SI unit of electric current?</b>
- <div class="option">A. Volt</div>
- <div class="option">B. Ohm</div>
- <div class="option">C. Ampere</div>
- <div class="option">D. Watt</div>
- <button onclick="alert('Correct Answer: C. Ampere')">Show Answer</button>
- </div>
- `;
- }
+}
 
- if(type==="important"){
- box.innerHTML=`
- <h2>⭐ Important Questions</h2>
- <div class="subject">Physics – Important Questions</div>
- <div class="subject">Chemistry – Important Questions</div>
- <div class="subject">Biology – Important Questions</div>
- <div class="subject">Mathematics – Important Questions</div>
- `;
- }
+function answer(correct){
 
- if(type==="cet"){
- box.innerHTML=`
- <h2>🎯 MHT-CET Practice</h2>
- <div class="subject">Physics CET Practice</div>
- <div class="subject">Chemistry CET Practice</div>
- <div class="subject">Biology CET Practice</div>
- <div class="subject">Mathematics CET Practice</div>
- <p>Timed CET mock tests will be added here.</p>
- `;
- }
+let result=document.getElementById("result");
 
- if(type==="practical"){
- box.innerHTML=`
- <h2>🧪 Practical Preparation</h2>
- <div class="subject">🔬 Physics Experiments + Viva</div>
- <div class="subject">⚗️ Chemistry Experiments + Viva</div>
- <div class="subject">🧬 Biology Practicals + Viva</div>
- `;
- }
+if(correct){
 
- if(type==="quiz"){
- box.innerHTML=`
- <h2>🧠 LearnGrow Quiz</h2>
- <div class="question">
- <b>Ready to test your knowledge?</b>
- <p>Future quizzes will include score, timer, streak and detailed answers.</p>
- <button onclick="alert('Quiz system coming next!')">Start Quiz</button>
- </div>
- `;
- }
+result.innerHTML="✅ Correct! Well done.";
 
- if(type==="revision"){
- box.innerHTML=`
- <h2>⚡ Quick Revision</h2>
- <div class="subject">📌 Important Definitions</div>
- <div class="subject">📐 Physics Formulas</div>
- <div class="subject">⚗️ Chemistry Reactions</div>
- <div class="subject">🧬 Biology Keywords</div>
- <div class="subject">📝 Last Minute Revision</div>
- `;
- }
+}else{
+
+result.innerHTML="❌ Incorrect. Try again!";
+
+}
+
 }
 
 function searchContent(){
- let value=document.getElementById("search").value.toLowerCase();
 
- let cards=document.querySelectorAll(".card,.subject");
+let value=document
+.getElementById("search")
+.value
+.toLowerCase();
 
- cards.forEach(card=>{
-   if(card.innerText.toLowerCase().includes(value)){
-      card.style.display="";
-   }else{
-      card.style.display="none";
-   }
- });
+document.querySelectorAll(".card,.chapter")
+.forEach(item=>{
+
+let text=item.innerText.toLowerCase();
+
+item.style.display=
+text.includes(value) ? "" : "none";
+
+});
+
 }
 
 </script>
