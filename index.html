@@ -1,155 +1,147 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>LearnGrow - Physics</title>
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
 }
 
 body{
-  background:#f4f7fb;
-  color:#172033;
-  line-height:1.6;
+  background:#f4f7fb;
+  color:#172033;
+  line-height:1.6;
 }
 
 header{
-  background:#182848;
-  color:white;
-  padding:24px 16px;
-  text-align:center;
+  background:#182848;
+  color:white;
+  padding:24px 16px;
+  text-align:center;
 }
 
-header h1{
-  font-size:29px;
-}
-
-header p{
-  opacity:.85;
-  margin-top:4px;
-}
+header h1{font-size:29px;}
+header p{opacity:.85;margin-top:4px;}
 
 .container{
-  max-width:950px;
-  margin:auto;
-  padding:18px 14px;
+  max-width:950px;
+  margin:auto;
+  padding:18px 14px;
 }
 
 .search{
-  width:100%;
-  padding:14px;
-  border:1px solid #ccd2dc;
-  border-radius:12px;
-  margin-bottom:18px;
-  font-size:16px;
+  width:100%;
+  padding:14px;
+  border:1px solid #ccd2dc;
+  border-radius:12px;
+  margin-bottom:18px;
+  font-size:16px;
 }
 
 .chapter{
-  background:white;
-  padding:18px;
-  margin:12px 0;
-  border-radius:15px;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
-  cursor:pointer;
+  background:white;
+  padding:18px;
+  margin:12px 0;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  cursor:pointer;
 }
 
-.chapter h3{
-  margin-bottom:5px;
-}
-
-.chapter p{
-  color:#667085;
-}
+.chapter h3{margin-bottom:5px;}
+.chapter p{color:#667085;}
 
 .content{
-  display:none;
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  display:none;
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
 
 .content h2{
-  color:#182848;
-  margin-bottom:14px;
+  color:#182848;
+  margin-bottom:14px;
 }
 
 .content h3{
-  margin-top:22px;
-  margin-bottom:8px;
+  margin-top:22px;
+  margin-bottom:8px;
 }
 
 .formula{
-  background:#eef3ff;
-  padding:12px;
-  margin:9px 0;
-  border-radius:10px;
-  font-weight:bold;
-  overflow-x:auto;
+  background:#eef3ff;
+  padding:12px;
+  margin:9px 0;
+  border-radius:10px;
+  font-weight:bold;
+  overflow-x:auto;
 }
 
 .question{
-  background:#f7f8fa;
-  padding:13px;
-  margin:9px 0;
-  border-radius:10px;
+  background:#f7f8fa;
+  padding:13px;
+  margin:9px 0;
+  border-radius:10px;
 }
 
 .section{
-  margin-top:25px;
-  padding-bottom:8px;
-  border-bottom:2px solid #e6eaf0;
+  margin-top:25px;
+  padding-bottom:8px;
+  border-bottom:2px solid #e6eaf0;
 }
 
 button{
-  background:#182848;
-  color:white;
-  border:none;
-  padding:11px 15px;
-  border-radius:9px;
-  cursor:pointer;
-  margin-top:10px;
+  background:#182848;
+  color:white;
+  border:none;
+  padding:11px 15px;
+  border-radius:9px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.back{
+  margin-top:25px;
 }
 
 footer{
-  text-align:center;
-  padding:25px;
-  color:#667085;
+  text-align:center;
+  padding:25px;
+  color:#667085;
 }
 
-/* DARK MODE */
-
+/* Dark Mode */
 .dark{
-  background:#101828;
-  color:#f2f4f7;
+  background:#101828;
+  color:#f2f4f7;
 }
 
 .dark .chapter,
 .dark .content{
-  background:#1d2939;
+  background:#1d2939;
 }
 
 .dark .chapter p{
-  color:#cbd5e1;
+  color:#cbd5e1;
 }
 
 .dark .question{
-  background:#273449;
+  background:#273449;
 }
 
 .dark .formula{
-  background:#243b64;
+  background:#243b64;
 }
 
 .dark .content h2{
-  color:white;
+  color:#ffffff;
 }
 </style>
 </head>
@@ -157,121 +149,320 @@ footer{
 <body>
 
 <header>
-
-<h1>📚 LearnGrow</h1>
-
-<p>Class 12 Maharashtra HSC</p>
-
-<p>Physics</p>
-
-<button onclick="toggleDark()">🌙 Dark Mode</button>
-
+  <h1>📚 LearnGrow</h1>
+  <p>Class 12 Maharashtra HSC</p>
+  <p>Physics</p>
+  <button onclick="toggleDark()">🌙 Dark Mode</button>
 </header>
 
 <div class="container">
 
 <input
-class="search"
-id="search"
-type="text"
-placeholder="Search Physics chapters..."
-onkeyup="searchChapters()"
+  class="search"
+  id="search"
+  type="text"
+  placeholder="Search Physics chapters..."
+  onkeyup="searchChapters()"
 >
-
-<!-- ================= CHAPTER LIST ================= -->
 
 <div id="chapters">
 
 <div class="chapter" onclick="openChapter('rotational')">
-<h3>1. Rotational Dynamics</h3>
-<p>Notes, formulas, derivations, PYQs, MCQs and quick revision.</p>
+  <h3>1. Rotational Dynamics</h3>
+  <p>Notes, formulas, derivations, PYQs, MCQs and quick revision.</p>
 </div>
-
 <div class="chapter" onclick="openChapter('fluids')">
-<h3>2. Mechanical Properties of Fluids</h3>
-<p>Pressure, surface tension, capillarity, viscosity and fluid flow.</p>
+
+  <button onclick="closeChapter()">← Back to Chapters</button>
+
+  <h1>Chapter 2: Mechanical Properties of Fluids</h1>
+  <p class="subtitle">HSC Physics | Maharashtra Board</p>
+
+  <hr>
+
+  <h2>Fluid</h2>
+  <p>A fluid is a substance that can flow. Liquids and gases are common examples.</p>
+
+  <h2>Ideal Fluid</h2>
+  <ul>
+    <li>Incompressible</li>
+    <li>Non-viscous</li>
+    <li>Irrotational</li>
+    <li>Steady flow</li>
+  </ul>
+
+  <h2>Pressure</h2>
+  <p>Pressure is the normal force acting per unit area.</p>
+  <div class="formula">P = F / A</div>
+  <p>SI unit: Pascal (Pa)</p>
+  <p>Dimensions: [ML⁻1T⁻2]</p>
+
+  <h2>Pressure Due to Liquid Column</h2>
+  <div class="formula">P = hρg</div>
+  <p>Here h is depth, ρ is density and g is acceleration due to gravity.</p>
+
+  <h2>Pascal's Law</h2>
+  <p>
+    Pressure applied to an enclosed fluid is transmitted equally and
+    undiminished in all directions.
+  </p>
+
+  <h3>Applications</h3>
+  <ul>
+    <li>Hydraulic lift</li>
+    <li>Hydraulic brakes</li>
+  </ul>
+
+  <h2>Atmospheric Pressure</h2>
+  <p>
+    Atmospheric pressure is the pressure produced by the weight of the
+    Earth's atmosphere.
+  </p>
+
+  <h2>Gauge Pressure</h2>
+  <div class="formula">
+    Gauge Pressure = Absolute Pressure − Atmospheric Pressure
+  </div>
+
+  <h2>Surface Tension</h2>
+  <p>
+    Surface tension is the tangential force acting per unit length on the
+    free surface of a liquid.
+  </p>
+  <div class="formula">T = F / L</div>
+  <p>SI unit: N/m</p>
+
+  <h2>Surface Energy</h2>
+  <p>
+    Surface energy is the work required to increase the surface area of
+    a liquid surface.
+  </p>
+
+  <h2>Angle of Contact</h2>
+  <p>
+    It is the angle between the tangent to the liquid surface and the
+    solid surface at the point of contact.
+  </p>
+
+  <h2>Laplace's Law</h2>
+  <p>For a liquid drop:</p>
+  <div class="formula">ΔP = 2T / r</div>
+
+  <p>For a soap bubble:</p>
+  <div class="formula">ΔP = 4T / r</div>
+
+  <h2>Capillarity</h2>
+  <p>
+    The rise or fall of a liquid in a narrow tube is called capillarity.
+  </p>
+
+  <h3>Examples</h3>
+  <ul>
+    <li>Oil rising through a lamp wick</li>
+    <li>Water movement through blotting paper</li>
+    <li>Water movement through soil</li>
+    <li>Rise of water in plants</li>
+  </ul>
+
+  <h2>Capillary Rise</h2>
+  <div class="formula">
+    h = 2T cosθ / (rρg)
+  </div>
+
+  <h2>Hydrodynamics</h2>
+  <p>Hydrodynamics is the study of fluids in motion.</p>
+
+  <h2>Streamline Flow</h2>
+  <p>
+    In streamline flow, fluid particles move smoothly in an orderly manner.
+  </p>
+
+  <h2>Turbulent Flow</h2>
+  <p>
+    Turbulent flow is irregular flow in which velocity can change with time
+    and eddies may form.
+  </p>
+
+  <h2>Reynolds Number</h2>
+  <div class="formula">
+    Rₙ = ρvd / η
+  </div>
+
+  <h2>Viscosity</h2>
+  <p>
+    Viscosity is the property of a fluid that opposes relative motion
+    between its layers.
+  </p>
+
+  <h2>Newton's Law of Viscosity</h2>
+  <div class="formula">
+    F = ηA(dv/dx)
+  </div>
+
+  <p>SI unit of coefficient of viscosity: Pa·s</p>
+
+  <h2>Stokes' Law</h2>
+  <div class="formula">
+    Fᵥ = 6πηrv
+  </div>
+
+  <h2>Terminal Velocity</h2>
+  <p>
+    The constant velocity reached by a falling body when the forces acting
+    on it become balanced is called terminal velocity.
+  </p>
+
+  <div class="formula">
+    vₜ = 2r2(ρ − σ)g / 9η
+  </div>
+
+  <h2>Equation of Continuity</h2>
+  <div class="formula">
+    A1v1 = A2v2
+  </div>
+
+  <div class="formula">
+    Av = Constant
+  </div>
+
+  <hr>
+
+  <h2>Important Formulas</h2>
+
+  <div class="formula">
+    P = F/A<br><br>
+    P = hρg<br><br>
+    T = F/L<br><br>
+    ΔP = 2T/r<br><br>
+    ΔP = 4T/r<br><br>
+    h = 2T cosθ/(rρg)<br><br>
+    Rₙ = ρvd/η<br><br>
+    Fᵥ = 6πηrv<br><br>
+    vₜ = 2r2(ρ−σ)g/(9η)<br><br>
+    A1v1 = A2v2
+  </div>
+
+  <hr>
+
+  <h2>Important Questions</h2>
+
+  <ol>
+    <li>Derive pressure due to a liquid column.</li>
+    <li>State Pascal's law and explain its applications.</li>
+    <li>Explain the construction and working of a mercury barometer.</li>
+    <li>Define surface tension and write its SI unit.</li>
+    <li>Explain the molecular origin of surface tension.</li>
+    <li>Derive excess pressure inside a liquid drop.</li>
+    <li>Derive the expression for capillary rise.</li>
+    <li>Define viscosity and coefficient of viscosity.</li>
+    <li>State Newton's law of viscosity.</li>
+    <li>State Stokes' law.</li>
+    <li>Derive the expression for terminal velocity.</li>
+    <li>Derive the equation of continuity.</li>
+    <li>Differentiate between streamline and turbulent flow.</li>
+    <li>Define Reynolds number and critical velocity.</li>
+  </ol>
+
+  <hr>
+
+  <h2>Quick Revision</h2>
+
+  <ul>
+    <li>Fluid → substance that can flow.</li>
+    <li>Pressure → force per unit area.</li>
+    <li>Pascal's law → pressure is transmitted equally in an enclosed fluid.</li>
+    <li>Surface tension → force per unit length.</li>
+    <li>Capillarity → rise or fall of liquid in a narrow tube.</li>
+    <li>Viscosity → resistance between fluid layers.</li>
+    <li>Stokes' law → Fᵥ = 6πηrv.</li>
+    <li>Continuity equation → A1v1 = A2v2.</li>
+  </ul>
+
+  <hr>
+
+  <h3>Note Writing – Soham Dhoran</h3>
+
 </div>
-
-<!-- CHAPTER 3 -->
-
-<div class="chapter" onclick="openChapter('kinetic')">
-<h3>3. Kinetic Theory of Gases and Radiation</h3>
-<p>Heat transfer, kinetic theory, specific heat and thermal radiation.</p>
+  <h3>2. Mechanical Properties of Fluids</h3>
+  <p>Pressure, surface tension, capillarity, viscosity and fluid flow</p>
 </div>
 
 <div class="chapter">
-<h3>4. Thermodynamics</h3>
-<p>Coming soon</p>
+  <h3>3. Kinetic Theory of Gases and Radiation</h3>
+  <p>Coming soon</p>
 </div>
 
 <div class="chapter">
-<h3>5. Oscillations</h3>
-<p>Coming soon</p>
+  <h3>4. Thermodynamics</h3>
+  <p>Coming soon</p>
 </div>
 
 <div class="chapter">
-<h3>6. Superposition of Waves</h3>
-<p>Coming soon</p>
+  <h3>5. Oscillations</h3>
+  <p>Coming soon</p>
 </div>
 
 <div class="chapter">
-<h3>7. Wave Optics</h3>
-<p>Coming soon</p>
+  <h3>6. Superposition of Waves</h3>
+  <p>Coming soon</p>
 </div>
 
 <div class="chapter">
-<h3>8. Electrostatics</h3>
-<p>Coming soon</p>
+  <h3>7. Wave Optics</h3>
+  <p>Coming soon</p>
 </div>
 
 <div class="chapter">
-<h3>9. Current Electricity</h3>
-<p>Coming soon</p>
+  <h3>8. Electrostatics</h3>
+  <p>Coming soon</p>
 </div>
 
 <div class="chapter">
-<h3>10. Magnetic Fields due to Electric Current</h3>
-<p>Coming soon</p>
+  <h3>9. Current Electricity</h3>
+  <p>Coming soon</p>
 </div>
 
 <div class="chapter">
-<h3>11. Magnetic Materials</h3>
-<p>Coming soon</p>
+  <h3>10. Magnetic Fields due to Electric Current</h3>
+  <p>Coming soon</p>
 </div>
 
 <div class="chapter">
-<h3>12. Electromagnetic Induction</h3>
-<p>Coming soon</p>
+  <h3>11. Magnetic Materials</h3>
+  <p>Coming soon</p>
 </div>
 
 <div class="chapter">
-<h3>13. AC Circuits</h3>
-<p>Coming soon</p>
+  <h3>12. Electromagnetic Induction</h3>
+  <p>Coming soon</p>
 </div>
 
 <div class="chapter">
-<h3>14. Dual Nature of Radiation and Matter</h3>
-<p>Coming soon</p>
+  <h3>13. AC Circuits</h3>
+  <p>Coming soon</p>
 </div>
 
 <div class="chapter">
-<h3>15. Structure of Atoms and Nuclei</h3>
-<p>Coming soon</p>
+  <h3>14. Dual Nature of Radiation and Matter</h3>
+  <p>Coming soon</p>
 </div>
 
 <div class="chapter">
-<h3>16. Semiconductor Devices</h3>
-<p>Coming soon</p>
+  <h3>15. Structure of Atoms and Nuclei</h3>
+  <p>Coming soon</p>
+</div>
+
+<div class="chapter">
+  <h3>16. Semiconductor Devices</h3>
+  <p>Coming soon</p>
 </div>
 
 </div>
 
 
-<!-- ================= CHAPTER 1 ================= -->
+<!-- ROTATIONAL DYNAMICS -->
 
 <div id="rotational" class="content">
-
-<button onclick="closeChapter()">← Back to Chapters</button>
 
 <h2>Chapter 1: Rotational Dynamics</h2>
 
@@ -305,7 +496,7 @@ It is dimensionless.
 
 <div class="formula">
 θ = s / r
-<br><br>
+<br>
 s = rθ
 </div>
 
@@ -327,7 +518,7 @@ v = rω
 <b>6. Angular Acceleration</b><br>
 Angular acceleration is the rate of change of angular velocity with respect to time.
 <br><br>
-SI unit: rad/s²
+SI unit: rad/s2
 </div>
 
 <div class="formula">
@@ -344,6 +535,7 @@ Motion of a particle along the circumference of a circle with constant speed.
 Motion of a particle along the circumference of a circle with variable speed.
 </div>
 
+
 <h3 class="section">Centripetal and Centrifugal Force</h3>
 
 <div class="question">
@@ -352,17 +544,19 @@ The force acting on a particle performing circular motion and directed towards t
 </div>
 
 <div class="formula">
-a<sub>c</sub> = v²/r = rω²
+a<sub>c</sub> = v2/r = rω2 = vω
 <br><br>
-F<sub>c</sub> = mv²/r = mrω²
+F<sub>c</sub> = mv2/r = mrω2 = mvω
 </div>
 
 <div class="question">
 <b>10. Centrifugal Force</b><br>
 The apparent force acting away from the centre during circular motion is called centrifugal force.
-<br><br>
 It is a pseudo force.
+<br><br>
+Its magnitude is equal to the centripetal force.
 </div>
+
 
 <h3 class="section">Vehicle on Horizontal Circular Track</h3>
 
@@ -371,10 +565,11 @@ For a vehicle moving on a level circular road, static friction provides the cent
 </div>
 
 <div class="formula">
-mv²/r = μmg
+mv2/r = μmg
 <br><br>
 v<sub>max</sub> = √(μrg)
 </div>
+
 
 <h3 class="section">Banking of Road</h3>
 
@@ -382,11 +577,95 @@ v<sub>max</sub> = √(μrg)
 <b>Banking of road</b> means raising the outer edge of a road above its inner edge through a certain angle.
 </div>
 
+<div class="question">
+<b>Angle of banking</b> is the angle made by the surface of the road with the horizontal.
+</div>
+
+<h3>Maximum Safety Speed with Friction</h3>
+
+<div class="formula">
+v<sub>max</sub> =
+√[rg(tanθ + μ<sub>s</sub>) /
+(1 − μ<sub>s</sub>tanθ)]
+</div>
+
+<h3>Minimum Safety Speed with Friction</h3>
+
+<div class="formula">
+v<sub>min</sub> =
+√[rg(tanθ − μ<sub>s</sub>) /
+(1 + μ<sub>s</sub>tanθ)]
+</div>
+
+<h3>Most Safe Speed</h3>
+
 <div class="formula">
 v = √(rg tanθ)
 <br><br>
-θ = tan⁻¹(v²/rg)
+θ = tan⁻1(v2/rg)
 </div>
+
+
+<h3 class="section">Conical Pendulum</h3>
+
+<div class="question">
+A conical pendulum consists of a bob moving in a horizontal circle while the string makes an angle θ with the vertical.
+</div>
+
+<div class="formula">
+T0 cosθ = mg
+<br>
+T0 sinθ = mrω2
+<br>
+ω = √[g/(L cosθ)]
+<br>
+T = 2π√(L cosθ/g)
+</div>
+
+
+<h3 class="section">Vertical Circular Motion</h3>
+
+<div class="question">
+<b>Particle on a string:</b>
+At the topmost position, the minimum speed required to just complete the circle is:
+</div>
+
+<div class="formula">
+v<sub>A,min</sub> = √(rg)
+</div>
+
+<div class="formula">
+v<sub>B,min</sub> = √(5rg)
+<br><br>
+v<sub>D</sub> = √(3rg)
+</div>
+
+<div class="question">
+For vertical circular motion using a rigid rod:
+</div>
+
+<div class="formula">
+v<sub>A,min</sub> = 0
+<br>
+v<sub>B,min</sub> = 2√(rg)
+</div>
+
+
+<h3 class="section">Rigid Body, Axis, Torque and Couple</h3>
+
+<div class="question">
+<b>Rigid Body:</b> A body whose geometrical shape and size remain unchanged under an external force.
+<br><br>
+
+<b>Axis of Rotation:</b> A straight line about which the particles of a rigid body move in circles.
+<br><br>
+
+<b>Torque:</b> The turning effect of a force about an axis.
+<br><br>
+
+<b>Couple:</b> Two equal and opposite forces acting at different points of a body and producing rotational motion.
+</div>
+
 
 <h3 class="section">Moment of Inertia</h3>
 
@@ -395,34 +674,90 @@ Moment of inertia is the sum of the products of the mass of each particle and th
 </div>
 
 <div class="formula">
-I = Σmᵢrᵢ²
+I = Σmᵢrᵢ2
 <br><br>
-I = ∫r²dm
+I = ∫r2dm
 </div>
 
 <div class="question">
-<b>SI unit:</b> kg m²
+<b>SI unit:</b> kg m2
 <br>
-<b>Dimensions:</b> [ML²T⁰]
+<b>Dimensions:</b> [ML2T0]
 </div>
 
+<h3>Factors Affecting Moment of Inertia</h3>
+
+<div class="question">
+1. Mass of the body<br>
+2. Shape and size of the body<br>
+3. Distribution of mass about the axis<br>
+4. Position and orientation of the axis
+</div>
+
+
+<h3 class="section">Moment of Inertia of Ring</h3>
+
+<div class="formula">
+I = MR2
+</div>
+
+<h3>Moment of Inertia of Disc</h3>
+
+<div class="formula">
+I = ½MR2
+</div>
+
+
 <h3 class="section">Angular Momentum</h3>
+
+<div class="question">
+Angular momentum of a rotating body is the product of its moment of inertia and angular velocity.
+</div>
 
 <div class="formula">
 L = Iω
 </div>
 
-<h3 class="section">Torque</h3>
+
+<h3 class="section">Torque in Terms of Moment of Inertia</h3>
 
 <div class="formula">
 τ = Iα
 </div>
 
+
 <h3 class="section">Rotational Kinetic Energy</h3>
 
-<div class="formula">
-K = ½Iω²
+<div class="question">
+The kinetic energy of a rotating body is:
 </div>
+
+<div class="formula">
+K = ½Iω2
+</div>
+
+
+<h3 class="section">Theorem of Perpendicular Axes</h3>
+
+<div class="question">
+For a plane lamina, the moment of inertia about an axis perpendicular to its plane is equal to the sum of the moments of inertia about two mutually perpendicular axes lying in its plane.
+</div>
+
+<div class="formula">
+I<sub>z</sub> = I<sub>x</sub> + I<sub>y</sub>
+</div>
+
+
+<h3 class="section">Theorem of Parallel Axes</h3>
+
+<div class="question">
+The moment of inertia about any axis is equal to the moment of inertia about a parallel axis passing through the centre of mass plus Mh2.
+</div>
+
+<div class="formula">
+I<sub>O</sub> = I<sub>C</sub> + Mh2
+</div>
+
 
 <h3 class="section">Conservation of Angular Momentum</h3>
 
@@ -436,639 +771,162 @@ dL/dt = τ
 If τ = 0, then L = constant.
 </div>
 
+<div class="question">
+Examples include ballet dancers, skaters, divers and acrobats.
+</div>
+
+
 <h3 class="section">Radius of Gyration</h3>
 
+<div class="question">
+Radius of gyration is the distance from the axis at which the whole mass of a body may be assumed to be concentrated without changing its moment of inertia.
+</div>
+
 <div class="formula">
-I = MK²
+I = MK2
 <br><br>
 K = √(I/M)
 </div>
 
+<div class="question">
+<b>SI unit:</b> metre<br>
+<b>Dimension:</b> [L]
+</div>
+
+
 <h3 class="section">Rolling Motion</h3>
 
+<div class="question">
+Rolling motion is a combination of pure translational and pure rotational motion without slipping.
+</div>
+
 <div class="formula">
-KE<sub>roll</sub> = ½Mv² + ½Iω²
+KE<sub>roll</sub>
+= ½Mv2 + ½Iω2
 <br><br>
 ω = v/R
 </div>
 
+<div class="formula">
+KE<sub>roll</sub>
+= ½Mv2(1 + K2/R2)
+</div>
+
+<h3>Rolling Down an Inclined Plane</h3>
+
+<div class="formula">
+v = √[2gh/(1 + K2/R2)]
+<br><br>
+a = g sinθ/(1 + K2/R2)
+</div>
+
+
 <h3 class="section">Rotational Kinematic Equations</h3>
 
 <div class="formula">
-ω = ω₀ + αt
+ω = ω0 + αt
 <br><br>
-θ = ω₀t + ½αt²
+θ = ω0t + ½αt2
 <br><br>
-ω² = ω₀² + 2αθ
+ω2 = ω02 + 2αθ
 </div>
 
-<h3 class="section">Previous Year Questions</h3>
+<h3>Translational Equations</h3>
+
+<div class="formula">
+v = u + at
+<br><br>
+s = ut + ½at2
+<br><br>
+v2 = u2 + 2as
+</div>
+
+
+<!-- PYQ -->
+
+<h3 class="section">⭐ Previous Year Questions — Section A</h3>
 
 <div class="question">
-<b>1.</b> State the formula for the moment of inertia of a solid sphere about an axis passing through its centre.
+<b>1.</b> State the formula for the moment of inertia of a solid sphere about an axis passing through its centre. <br>
+<small>Sept 2021</small>
+</div>
+
+<div class="question">
+<b>2.</b> Calculate the moment of inertia of a uniform disc of mass 10 kg and radius 60 cm about an axis perpendicular to its plane and passing through its centre. <br>
+<small>March 2022</small>
+</div>
+
+<div class="question">
+<b>3.</b> If friction is made zero for a road, can a vehicle move safely on this road? <br>
+<small>March 2023</small>
+</div>
+
+<div class="question">
+<b>4.</b> State the law of conservation of angular momentum. <br>
+<small>July 2022</small>
+</div>
+
+<div class="question">
+<b>5.</b> Define centripetal force. <br>
+<small>February 2024</small>
+</div>
+
+<div class="question">
+<b>6.</b> What is the radius of gyration of a solid sphere of radius R about its diameter? <br>
+<small>July 2024</small>
+</div>
+
+<div class="question">
+<b>7.</b> State the formula for angle of banking. <br>
+<small>February 2025</small>
+</div>
+
+<div class="question">
+<b>8.</b> A metal ring of 20 cm is rotated about a transverse axis passing through its centre. What will be its radius of gyration about the same axis? <br>
+<small>June 2025</small>
+</div>
+
+
+<h3 class="section">⭐ Previous Year Questions — Section B</h3>
+
+<div class="question">
+<b>1.</b> A motorcyclist undertakes horizontal circles inside a cylindrical wall of a well of inner radius 4 m. The coefficient of static friction is 0.2. Calculate the minimum speed and period.
 <br><small>Sept 2021</small>
 </div>
 
 <div class="question">
-<b>2.</b> Calculate the moment of inertia of a uniform disc of mass 10 kg and radius 60 cm about an axis perpendicular to its plane and passing through its centre.
+<b>2.</b> Define moment of inertia of a rotating rigid body. State its SI unit and dimensions.
 <br><small>March 2022</small>
 </div>
 
 <div class="question">
-<b>3.</b> If friction is made zero for a road, can a vehicle move safely on this road?
+<b>3.</b> State and prove the principle of conservation of angular momentum.
 <br><small>March 2023</small>
 </div>
 
 <div class="question">
-<b>4.</b> State the law of conservation of angular momentum.
+<b>4.</b> The surface density of a uniform disc of radius 10 cm is 2 kg/m2. Find its moment of inertia about an axis through its centre and perpendicular to its plane.
 <br><small>July 2022</small>
 </div>
 
-<h3>Note Writing – Soham Dhoran</h3>
-
+<div class="question">
+<b>5.</b> A motorcyclist performs a stunt along the cylindrical wall of a Well of Death of inner radius 4 m. The coefficient of static friction is 0.4. Calculate the maximum period of revolution. Use g = 10 m/s2.
+<br><small>June 2023</small>
 </div>
-
-
-<!-- ================= CHAPTER 2 ================= -->
-
-<div id="fluids" class="content">
-
-<button onclick="closeChapter()">← Back to Chapters</button>
-
-<h2>Chapter 2: Mechanical Properties of Fluids</h2>
-
-<p><b>HSC Physics | Maharashtra Board</b></p>
-
-<h3>Fluid</h3>
-
-<p>
-A fluid is a substance that can flow. Liquids and gases are common examples.
-</p>
-
-<h3>Ideal Fluid</h3>
-
-<ul>
-<li>Incompressible</li>
-<li>Non-viscous</li>
-<li>Irrotational</li>
-<li>Steady flow</li>
-</ul>
-
-<h3>Pressure</h3>
-
-<p>Pressure is the normal force acting per unit area.</p>
-
-<div class="formula">
-P = F / A
-</div>
-
-<p><b>SI unit:</b> Pascal (Pa)</p>
-
-<p><b>Dimensions:</b> [ML⁻¹T⁻²]</p>
-
-<h3>Pressure Due to Liquid Column</h3>
-
-<div class="formula">
-P = hρg
-</div>
-
-<p>
-Here h is depth, ρ is density and g is acceleration due to gravity.
-</p>
-
-<h3>Pascal's Law</h3>
-
-<p>
-Pressure applied to an enclosed fluid is transmitted equally and undiminished in all directions.
-</p>
-
-<h3>Applications</h3>
-
-<ul>
-<li>Hydraulic lift</li>
-<li>Hydraulic brakes</li>
-</ul>
-
-<h3>Atmospheric Pressure</h3>
-
-<p>
-Atmospheric pressure is the pressure produced by the weight of the Earth's atmosphere.
-</p>
-
-<h3>Gauge Pressure</h3>
-
-<div class="formula">
-Gauge Pressure = Absolute Pressure − Atmospheric Pressure
-</div>
-
-<h3>Surface Tension</h3>
-
-<p>
-Surface tension is the tangential force acting per unit length on the free surface of a liquid.
-</p>
-
-<div class="formula">
-T = F / L
-</div>
-
-<p><b>SI unit:</b> N/m</p>
-
-<h3>Surface Energy</h3>
-
-<p>
-Surface energy is the work required to increase the surface area of a liquid surface.
-</p>
-
-<h3>Angle of Contact</h3>
-
-<p>
-It is the angle between the tangent to the liquid surface and the solid surface at the point of contact.
-</p>
-
-<h3>Laplace's Law</h3>
-
-<p>For a liquid drop:</p>
-
-<div class="formula">
-ΔP = 2T / r
-</div>
-
-<p>For a soap bubble:</p>
-
-<div class="formula">
-ΔP = 4T / r
-</div>
-
-<h3>Capillarity</h3>
-
-<p>
-The rise or fall of a liquid in a narrow tube is called capillarity.
-</p>
-
-<h3>Examples</h3>
-
-<ul>
-<li>Oil rising through a lamp wick</li>
-<li>Water movement through blotting paper</li>
-<li>Water movement through soil</li>
-<li>Rise of water in plants</li>
-</ul>
-
-<h3>Capillary Rise</h3>
-
-<div class="formula">
-h = 2T cosθ / (rρg)
-</div>
-
-<h3>Hydrodynamics</h3>
-
-<p>
-Hydrodynamics is the study of fluids in motion.
-</p>
-
-<h3>Streamline Flow</h3>
-
-<p>
-In streamline flow, fluid particles move smoothly in an orderly manner.
-</p>
-
-<h3>Turbulent Flow</h3>
-
-<p>
-Turbulent flow is irregular flow in which velocity can change with time and eddies may form.
-</p>
-
-<h3>Reynolds Number</h3>
-
-<div class="formula">
-Rₑ = ρvd / η
-</div>
-
-<h3>Viscosity</h3>
-
-<p>
-Viscosity is the property of a fluid that opposes relative motion between its layers.
-</p>
-
-<h3>Newton's Law of Viscosity</h3>
-
-<div class="formula">
-F = ηA(dv/dx)
-</div>
-
-<p><b>SI unit of coefficient of viscosity:</b> Pa·s</p>
-
-<h3>Stokes' Law</h3>
-
-<div class="formula">
-Fᵥ = 6πηrv
-</div>
-
-<h3>Terminal Velocity</h3>
-
-<p>
-The constant velocity reached by a falling body when the forces acting on it become balanced is called terminal velocity.
-</p>
-
-<div class="formula">
-vₜ = 2r²(ρ − σ)g / 9η
-</div>
-
-<h3>Equation of Continuity</h3>
-
-<div class="formula">
-A₁v₁ = A₂v₂
-</div>
-
-<div class="formula">
-Av = Constant
-</div>
-
-<h3>Important Questions</h3>
-
-<ol>
-<li>Derive pressure due to a liquid column.</li>
-<li>State Pascal's law and explain its applications.</li>
-<li>Explain the construction and working of a mercury barometer.</li>
-<li>Define surface tension and write its SI unit.</li>
-<li>Explain the molecular origin of surface tension.</li>
-<li>Derive excess pressure inside a liquid drop.</li>
-<li>Derive the expression for capillary rise.</li>
-<li>Define viscosity and coefficient of viscosity.</li>
-<li>State Newton's law of viscosity.</li>
-<li>State Stokes' law.</li>
-<li>Derive the expression for terminal velocity.</li>
-<li>Derive the equation of continuity.</li>
-<li>Differentiate between streamline and turbulent flow.</li>
-<li>Define Reynolds number and critical velocity.</li>
-</ol>
-
-<h3>Quick Revision</h3>
-
-<ul>
-<li>Fluid → substance that can flow.</li>
-<li>Pressure → force per unit area.</li>
-<li>Pascal's law → pressure is transmitted equally in an enclosed fluid.</li>
-<li>Surface tension → force per unit length.</li>
-<li>Capillarity → rise or fall of liquid in a narrow tube.</li>
-<li>Viscosity → resistance between fluid layers.</li>
-<li>Stokes' law → Fᵥ = 6πηrv.</li>
-<li>Continuity equation → A₁v₁ = A₂v₂.</li>
-</ul>
-
-<h3>Note Writing – Soham Dhoran</h3>
-
-</div>
-
-
-<!-- ================= CHAPTER 3 ================= -->
-
-<div id="kinetic" class="content">
-
-<button onclick="closeChapter()">← Back to Chapters</button>
-
-<h2>Chapter 3: Kinetic Theory of Gases and Radiation</h2>
-
-<p><b>HSC Physics | Maharashtra Board</b></p>
 
 <div class="question">
-
-<b>Q1. What are the modes of transfer of heat energy?</b>
-
-<br><br>
-
-<b>Ans:</b> Heat energy flows from a region of higher temperature to a region of lower temperature. There are three modes of transfer of heat:
-
-<br><br>
-
-<b>1. Conduction</b><br>
-Transfer of heat through a material medium without actual movement of the particles of the medium.
-
-<br><br>
-
-<b>2. Convection</b><br>
-Transfer of heat through a fluid by actual movement of its particles.
-
-<br><br>
-
-<b>3. Radiation</b><br>
-Transfer of heat in the form of electromagnetic waves without requiring a material medium. Radiation can travel through vacuum.
-
+<b>6.</b> Derive an expression for the maximum speed of a vehicle moving along a horizontal circular track.
+<br><small>February 2024</small>
 </div>
 
+
+<h3 class="section">⭐ Previous Year Questions — Section C</h3>
 
 <div class="question">
-
-<b>Q2. Explain the concept of an ideal gas.</b>
-
-<br><br>
-
-<b>Ans:</b> An ideal gas is a gas which satisfies the following conditions:
-
-<br><br>
-
-• The size of gas molecules is negligibly small.<br>
-• There is negligible intermolecular force of attraction.<br>
-• It obeys gas laws strictly.
-
-<br><br>
-
-<b>Boyle's Law:</b> P ∝ 1/V at constant temperature.
-
-<br><br>
-
-<b>Charles' Law:</b> V ∝ T at constant pressure.
-
-<br><br>
-
-<b>Gay-Lussac's Law:</b> P ∝ T at constant volume.
-
-<br><br>
-
-<div class="formula">
-PV = nRT
+<b>1.</b> Derive an expression for the kinetic energy of a body rotating with uniform angular speed.
+<br><small>March 2022</small>
 </div>
-
-</div>
-
 
 <div class="question">
-
-<b>Q3. What is Equation of State?</b>
-
-<br><br>
-
-<b>Ans:</b> The equation relating physical quantities such as pressure P, temperature T and volume V of a gas is called the equation of state.
-
-</div>
-
-
-<div class="question">
-
-<b>Q4. Write the assumptions of kinetic theory of gases.</b>
-
-<br><br>
-
-<b>Ans:</b>
-
-<br>
-
-• Gas consists of a large number of very small molecules.<br>
-• Molecules are identical for the same gas.<br>
-• Molecules are in continuous random motion.<br>
-• Collisions between molecules and container walls are perfectly elastic.<br>
-• Molecules move in straight lines between collisions.<br>
-• Intermolecular forces are negligible.<br>
-• Actual volume of molecules is very small compared with the gas volume.<br>
-• Average kinetic energy of molecules is proportional to absolute temperature.
-
-</div>
-
-
-<div class="question">
-
-<b>Q5. Derive an expression for average pressure of a gas.</b>
-
-<br><br>
-
-<b>Ans:</b> From kinetic theory of gases:
-
-<div class="formula">
-P = 1/3 ρ v²
-</div>
-
-where ρ is the density of the gas and v² is the mean square velocity.
-
-</div>
-
-
-<div class="question">
-
-<b>Q6. Obtain the expression for RMS velocity.</b>
-
-<br><br>
-
-<b>Ans:</b>
-
-<div class="formula">
-v<sub>rms</sub> = √(3P/ρ)
-</div>
-
-For an ideal gas:
-
-<div class="formula">
-v<sub>rms</sub> = √(3RT/M)
-</div>
-
-</div>
-
-
-<div class="question">
-
-<b>Q7. Obtain the expression for kinetic energy.</b>
-
-<br><br>
-
-<b>Ans:</b>
-
-<div class="formula">
-E = 3/2 PV
-</div>
-
-For an ideal gas:
-
-<div class="formula">
-E = 3/2 Nk<sub>B</sub>T
-</div>
-
-Therefore, average kinetic energy per molecule is:
-
-<div class="formula">
-E/N = 3/2 k<sub>B</sub>T
-</div>
-
-</div>
-
-
-<div class="question">
-
-<b>Q8. Define Degree of Freedom.</b>
-
-<br><br>
-
-<b>Ans:</b> The number of independent coordinates required to describe the position and configuration of a system completely is called the degree of freedom.
-
-<br><br>
-
-For a monoatomic gas, degree of freedom = 3.
-
-<br><br>
-
-For a diatomic gas, degree of freedom = 5.
-
-</div>
-
-
-<div class="question">
-
-<b>Q9. Explain Specific Heat.</b>
-
-<br><br>
-
-<b>Ans:</b> The amount of heat required to raise the temperature of unit mass of a substance by 1°C is called its specific heat.
-
-<br><br>
-
-For gases, two specific heats are considered:
-
-<br>
-
-• C<sub>V</sub> = specific heat at constant volume<br>
-• C<sub>P</sub> = specific heat at constant pressure
-
-</div>
-
-
-<div class="question">
-
-<b>Q10. Mayer's Relation</b>
-
-<br><br>
-
-For one mole of an ideal gas:
-
-<div class="formula">
-C<sub>P</sub> − C<sub>V</sub> = R
-</div>
-
-This is known as Mayer's relation.
-
-</div>
-
-
-<div class="question">
-
-<b>Q11. Define Diathermanous body.</b>
-
-<br><br>
-
-<b>Ans:</b> A body which allows heat radiation to pass through it is called a diathermanous body.
-
-</div>
-
-
-<div class="question">
-
-<b>Q12. Define Athermanous substance.</b>
-
-<br><br>
-
-<b>Ans:</b> A body which does not allow heat radiation to pass through it is called an athermanous substance.
-
-</div>
-
-
-<div class="question">
-
-<b>Q13. Define coefficient of absorption.</b>
-
-<br><br>
-
-<b>Ans:</b> The ratio of radiant heat absorbed by a body to the total radiant heat incident on it is called coefficient of absorption.
-
-<div class="formula">
-a = Q<sub>a</sub>/Q
-</div>
-
-</div>
-
-
-<div class="question">
-
-<b>Q14. Define coefficient of reflection.</b>
-
-<br><br>
-
-<b>Ans:</b> The ratio of radiant heat reflected by a body to the total radiant heat incident on it is called coefficient of reflection.
-
-<div class="formula">
-r = Q<sub>r</sub>/Q
-</div>
-
-</div>
-
-
-<div class="question">
-
-<b>Q15. Define coefficient of transmission.</b>
-
-<br><br>
-
-<b>Ans:</b> The ratio of radiant heat transmitted through a body to the total radiant heat incident on it is called coefficient of transmission.
-
-<div class="formula">
-t = Q<sub>t</sub>/Q
-</div>
-
-</div>
-
-
-<div class="question">
-
-<b>Q16. Obtain the relation between a, r and t.</b>
-
-<br><br>
-
-The incident radiant heat is divided into absorbed, reflected and transmitted heat.
-
-<div class="formula">
-Q = Q<sub>a</sub> + Q<sub>r</sub> + Q<sub>t</sub>
-</div>
-
-Therefore:
-
-<div class="formula">
-a + r + t = 1
-</div>
-
-</div>
-
-
-<div class="question">
-
-<b>Q17. What is a perfect black body?</b>
-
-<br><br>
-
-<b>Ans:</b> A body which absorbs all the radiant energy incident upon it is called a perfect black body.
-
-<div class="formula">
-a = 1
-</div>
-
-For a perfect black body:
-
-<div class="formula">
-r = 0, t = 0
-</div>
-
-</div>
-
-
-<div class="question">
-
-<b>Q18. Explain the construction and working of Ferry's black body.</b>
-
-<br><br>
-
-<b>Ans:</b>
-
-<br>
-
-• Ferry's black body consists of a double-walled hollow sphere with a small aperture.<br>
-• The space between the walls is evacuated.<br>
-• The outer surface is silvered.<br>
-• The inner surface is coated with lampblack.<br>
-• A conical projection is provided opposite the aperture.<br>
-• Radiation entering through the aperture undergoes multiple reflections and is almost completely absorbed.<br>
-• Therefore, the apertu
+<b>2.</b> Derive an expression for kinetic energy of a rotating body.
+<br><s
