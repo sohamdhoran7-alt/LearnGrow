@@ -1,1524 +1,1318 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>LearnGrow - Physics</title>  <style>  
-*{  
-  box-sizing:border-box;  
-  margin:0;  
-  padding:0;  
-  font-family:Arial,sans-serif;  
-}  
-  
-body{  
-  background:#f4f7fb;  
-  color:#172033;  
-  line-height:1.6;  
-}  
-  
-header{  
-  background:#182848;  
-  color:white;  
-  padding:24px 16px;  
-  text-align:center;  
-}  
-  
-header h1{  
-  font-size:29px;  
-}  
-  
-header p{  
-  opacity:.85;  
-  margin-top:4px;  
-}  
-  
-.container{  
-  max-width:950px;  
-  margin:auto;  
-  padding:18px 14px;  
-}  
-  
-.search{  
-  width:100%;  
-  padding:14px;  
-  border:1px solid #ccd2dc;  
-  border-radius:12px;  
-  margin-bottom:18px;  
-  font-size:16px;  
-}  
-  
-.chapter{  
-  background:white;  
-  padding:18px;  
-  margin:12px 0;  
-  border-radius:15px;  
-  box-shadow:0 3px 12px rgba(0,0,0,.08);  
-  cursor:pointer;  
-}  
-  
-.chapter h3{  
-  margin-bottom:5px;  
-}  
-  
-.chapter p{  
-  color:#667085;  
-}  
-  
-.content{  
-  display:none;  
-  background:white;  
-  padding:20px;  
-  border-radius:15px;  
-  box-shadow:0 3px 12px rgba(0,0,0,.08);  
-}  
-  
-.content h2{  
-  color:#182848;  
-  margin-bottom:14px;  
-}  
-  
-.content h3{  
-  margin-top:22px;  
-  margin-bottom:8px;  
-}  
-  
-.formula{  
-  background:#eef3ff;  
-  padding:12px;  
-  margin:9px 0;  
-  border-radius:10px;  
-  font-weight:bold;  
-  overflow-x:auto;  
-}  
-  
-.question{  
-  background:#f7f8fa;  
-  padding:13px;  
-  margin:9px 0;  
-  border-radius:10px;  
-}  
-  
-.section{  
-  margin-top:25px;  
-  padding-bottom:8px;  
-  border-bottom:2px solid #e6eaf0;  
-}  
-  
-button{  
-  background:#182848;  
-  color:white;  
-  border:none;  
-  padding:11px 15px;  
-  border-radius:9px;  
-  cursor:pointer;  
-  margin-top:10px;  
-}  
-  
-.back{  
-  margin-top:25px;  
-}  
-  
-footer{  
-  text-align:center;  
-  padding:25px;  
-  color:#667085;  
-}  
-  
-/* Dark Mode */  
-  
-.dark{  
-  background:#101828;  
-  color:#f2f4f7;  
-}  
-  
-.dark .chapter,  
-.dark .content{  
-  background:#1d2939;  
-}  
-  
-.dark .chapter p{  
-  color:#cbd5e1;  
-}  
-  
-.dark .question{  
-  background:#273449;  
-}  
-  
-.dark .formula{  
-  background:#243b64;  
-}  
-  
-.dark .content h2{  
-  color:#ffffff;  
-}  
-</style>  </head>  <body>  <header>  <h1>📚 LearnGrow</h1>  <p>Class 12 Maharashtra HSC</p>  <p>Physics</p>  <button onclick="toggleDark()">🌙 Dark Mode</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-</header>  <div class="container">  <input
+<title>LearnGrow - Physics</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#f4f7fb;
+  color:#172033;
+  line-height:1.6;
+  transition:.3s;
+}
+
+header{
+  background:#182848;
+  color:white;
+  padding:24px 16px;
+  text-align:center;
+}
+
+header h1{
+  font-size:29px;
+}
+
+header p{
+  opacity:.85;
+  margin-top:4px;
+}
+
+.container{
+  max-width:950px;
+  margin:auto;
+  padding:18px 14px;
+}
+
+.search{
+  width:100%;
+  padding:14px;
+  border:1px solid #ccd2dc;
+  border-radius:12px;
+  margin-bottom:18px;
+  font-size:16px;
+  outline:none;
+}
+
+.chapter{
+  background:white;
+  padding:18px;
+  margin:12px 0;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.chapter:hover{
+  transform:translateY(-2px);
+}
+
+.chapter h3{
+  margin-bottom:5px;
+}
+
+.chapter p{
+  color:#667085;
+}
+
+.content{
+  display:none;
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.content h2{
+  color:#182848;
+  margin-bottom:14px;
+}
+
+.content h3{
+  margin-top:22px;
+  margin-bottom:8px;
+}
+
+.formula{
+  background:#eef3ff;
+  padding:12px;
+  margin:9px 0;
+  border-radius:10px;
+  font-weight:bold;
+  overflow-x:auto;
+}
+
+.question{
+  background:#f7f8fa;
+  padding:13px;
+  margin:9px 0;
+  border-radius:10px;
+}
+
+.section{
+  margin-top:25px;
+  padding-bottom:8px;
+  border-bottom:2px solid #e6eaf0;
+}
+
+button{
+  background:#182848;
+  color:white;
+  border:none;
+  padding:11px 15px;
+  border-radius:9px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.back{
+  margin-top:0;
+  margin-bottom:20px;
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  color:#667085;
+}
+
+/* DARK MODE */
+
+.dark{
+  background:#101828;
+  color:#f2f4f7;
+}
+
+.dark .chapter,
+.dark .content{
+  background:#1d2939;
+}
+
+.dark .chapter p{
+  color:#cbd5e1;
+}
+
+.dark .question{
+  background:#273449;
+}
+
+.dark .formula{
+  background:#243b64;
+}
+
+.dark .content h2{
+  color:#ffffff;
+}
+
+.dark .section{
+  border-color:#475467;
+}
+
+.dark .search{
+  background:#1d2939;
+  color:white;
+  border-color:#475467;
+}
+
+.dark footer{
+  color:#98a2b3;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>📚 LearnGrow</h1>
+
+<p>Class 12 Maharashtra HSC</p>
+<p>Physics</p>
+
+<button onclick="toggleDark()">🌙 Dark Mode</button>
+
+</header>
+
+
+<div class="container">
+
+<input
 class="search"
 id="search"
 type="text"
 placeholder="Search Physics chapters..."
 onkeyup="searchChapters()"
+>
 
-> 
 
-<!-- ================= CHAPTER LIST ================= -->  <div id="chapters">  <div class="chapter" onclick="openChapter('rotational')">  
-<h3>1. Rotational Dynamics</h3>  
-<p>Notes, formulas, derivations, PYQs, MCQs and quick revision.</p>  
-</div>  <div class="chapter" onclick="openChapter('fluids')">  
-<h3>2. Mechanical Properties of Fluids</h3>  
-<p>Pressure, surface tension, capillarity, viscosity and fluid flow.</p>  
-</div>  <div class="chapter">  
-<div id="kinetic" class="content">
+<!-- ================= CHAPTER LIST ================= -->
 
-<button onclick="closeChapter()">← Back to Chapters</button>
+<div id="chapters">
 
-<h2>3 KINETIC THEORY OF GASES AND RADIATION</h2>
-<h3 class="section">Q1 What are the modes of transfer of heat energy?</h3>
+<div class="chapter"
+onclick="openChapter('rotational')">
 
-<div class="question">
+<h3>1. Rotational Dynamics</h3>
 
-<b>Ans:</b> The heat energy flows from one point to the another point due to the temperature difference between them. It tends to move from the high temperature point (region) to the low temperature point (region). There are three modes (methods) of transfer of heat.
-
-<br><br>
-
-Conduction<br>
-Convection<br>
-Radiation
-
-<br><br>
-
-<b>Conduction:-</b> It is the mode of transfer of heat through the material medium without actual migration of the particles of the medium from one place to another is called conduction. In solids, the heat is transfer by conduction mainly or conduction material medium is necessary & it cannot pass through vacuum.
-
-<br><br>
-
-<b>Convection:-</b> It is the mode of transfer of heat through material medium by the actual migration of particles of the medium is called convection. In fluids (liquid and gases) the heat is transfer by convection.
-
-<br><br>
-
-<b>Radiation:-</b> In radiation, the heat is transferred from a body at higher temperature to a body at lower temperature in the form of electro-magnetic waves without affecting the intermediate medium. No material medium is necessary for radiation. It means that it can travel through vacuum.
+<p>
+Notes, formulas, derivations, PYQs, MCQs and quick revision.
+</p>
 
 </div>
 
 
-<h3 class="section">Q2 Explain the concept of an ideal gas</h3>
+<div class="chapter"
+onclick="openChapter('fluids')">
+
+<h3>2. Mechanical Properties of Fluids</h3>
+
+<p>
+Pressure, surface tension, capillarity, viscosity and fluid flow.
+</p>
+
+</div>
+
+
+<div class="chapter"
+onclick="openChapter('kinetic')">
+
+<h3>3. Kinetic Theory of Gases and Radiation</h3>
+
+<p>
+Heat transfer, ideal gas, kinetic theory, RMS velocity,
+specific heat, black body and radiation.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- CHAPTER 1 -->
+<!-- ================================================= -->
+
+<div id="rotational" class="content">
+
+<button class="back" onclick="closeChapter()">
+← Back to Chapters
+</button>
+
+<h2>1. Rotational Dynamics</h2>
+
+<h3 class="section">
+Important Topics
+</h3>
 
 <div class="question">
 
-<b>Ans:</b> Ideal gas is that gas which full fill the following condition.
+<b>Topics:</b>
 
 <br><br>
 
-The size of the gas molecule is negligibly small.
+• Angular displacement<br>
+• Angular velocity<br>
+• Angular acceleration<br>
+• Torque<br>
+• Moment of inertia<br>
+• Radius of gyration<br>
+• Angular momentum<br>
+• Rotational kinetic energy<br>
+• Conservation of angular momentum
+
+</div>
+
+
+<h3 class="section">
+Important Formulae
+</h3>
+
+<div class="formula">
+ω = θ / t
+</div>
+
+<div class="formula">
+τ = Iα
+</div>
+
+<div class="formula">
+L = Iω
+</div>
+
+<div class="formula">
+K.E. = 1/2 Iω²
+</div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- CHAPTER 2 -->
+<!-- ================================================= -->
+
+<div id="fluids" class="content">
+
+<button class="back" onclick="closeChapter()">
+← Back to Chapters
+</button>
+
+<h2>2. Mechanical Properties of Fluids</h2>
+
+
+<h3 class="section">
+Important Topics
+</h3>
+
+<div class="question">
+
+<b>Topics:</b>
 
 <br><br>
 
-Gas molecule are widely separated therefore, there is no intermolecular force of attraction between the molecules of the gas.
+• Pressure<br>
+• Pascal's law<br>
+• Surface tension<br>
+• Capillarity<br>
+• Viscosity<br>
+• Stokes' law<br>
+• Terminal velocity<br>
+• Bernoulli's theorem<br>
+• Equation of continuity
+
+</div>
+
+
+<h3 class="section">
+Important Formulae
+</h3>
+
+<div class="formula">
+P = F / A
+</div>
+
+<div class="formula">
+P = ρgh
+</div>
+
+<div class="formula">
+F = 6πηrv
+</div>
+
+<div class="formula">
+A₁v₁ = A₂v₂
+</div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- CHAPTER 3 -->
+<!-- ================================================= -->
+
+<div id="kinetic" class="content">
+
+<button class="back" onclick="closeChapter()">
+← Back to Chapters
+</button>
+
+
+<h2>
+3. KINETIC THEORY OF GASES AND RADIATION
+</h2>
+
+
+<!-- Q1 -->
+
+<h3 class="section">
+Q1. What are the modes of transfer of heat energy?
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+Heat energy flows from one point to another due to
+temperature difference. It moves from a region of higher
+temperature to a region of lower temperature.
 
 <br><br>
 
-Ideal gas strictly obeys all the gas laws.
+There are three modes of transfer of heat:
 
 <br><br>
 
-a. Boyle’s law: <span class="formula">P ∝ 1/V at constant T --- (3.1)</span>
+<b>1. Conduction</b><br>
+<b>2. Convection</b><br>
+<b>3. Radiation</b>
 
-b. Charles’s law: <span class="formula">V ∝ T at constant P --- (3.2)</span>
+<br><br>
 
-c. Gay-Lussac’s law: <span class="formula">P ∝ T at constant V --- (3.3)</span>
+<b>Conduction:</b>
 
-<br>
+It is the mode of transfer of heat through a material
+medium without actual migration of the particles of the
+medium from one place to another.
 
-Ideal gases satisfy following relation between pressure, volume and temperature of the gas for any value of P, V and T. By combining them relation is given by
+In solids, heat is mainly transferred by conduction.
+A material medium is necessary.
+
+<br><br>
+
+<b>Convection:</b>
+
+It is the mode of transfer of heat through a material
+medium by the actual migration of particles of the medium.
+
+In fluids (liquids and gases), heat is transferred mainly
+by convection.
+
+<br><br>
+
+<b>Radiation:</b>
+
+In radiation, heat is transferred from a body at higher
+temperature to a body at lower temperature in the form
+of electromagnetic waves.
+
+No material medium is necessary for radiation.
+Therefore, radiation can travel through vacuum.
+
+</div>
+
+
+<!-- Q2 -->
+
+<h3 class="section">
+Q2. Explain the concept of an ideal gas
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+An ideal gas is a gas which fulfils the following
+conditions:
+
+<br><br>
+
+1. The size of gas molecules is negligibly small.
+
+<br><br>
+
+2. Gas molecules are widely separated and intermolecular
+forces of attraction are negligible.
+
+<br><br>
+
+3. An ideal gas strictly obeys all gas laws.
+
+<br><br>
+
+<b>Boyle's Law:</b>
+
+<div class="formula">
+P ∝ 1/V &nbsp; at constant T
+</div>
+
+<b>Charles' Law:</b>
+
+<div class="formula">
+V ∝ T &nbsp; at constant P
+</div>
+
+<b>Gay-Lussac's Law:</b>
+
+<div class="formula">
+P ∝ T &nbsp; at constant V
+</div>
+
+The relation between pressure, volume and temperature is:
 
 <div class="formula">
 PV = nRT
 </div>
 
-Where P = pressure of gas<br>
-V = volume of the gas<br>
-n = no. of moles<br>
+Where:
+
+<br>
+P = pressure of gas<br>
+V = volume of gas<br>
+n = number of moles<br>
 R = gas constant<br>
 T = temperature of gas
 
 </div>
 
 
-<h3 class="section">Q3 What is Equation of State?</h3>
-
-<div class="question">
-
-<b>Ans:</b> Equation of State: For a gas, its state is specified by a number of physical quantities such as pressure P, temperature T, volume V, internal energy E, etc. Hence, the equation relating these quantities is known as the equation of state.
-
-</div>
-
-
-<h3 class="section">Q4 Write the Assumptions of kinetic theory of gases</h3>
-
-<div class="question">
-
-<b>Ans: Assumptions:</b>
-
-<br><br>
-
-Gas consists of large number of extremely small particles called as gas molecules.
-
-<br><br>
-
-All molecules of same gas are identical.
-
-<br><br>
-
-Molecules are rigid & perfectly elastic spheres.
-
-<br><br>
-
-The gas molecules are in the state of random motion i.e. they are moving continuously in all possible direction with all possible velocities.
-
-<br><br>
-
-During random motion, they collide with other molecules and with the wall of the container. These collisions are perfectly elastic collisions.
-
-<br><br>
-
-A molecule travels in a straight line with uniform speed between two successive collisions.
-
-<br><br>
-
-The time taken for the collision is very small as compared to the time interval between two successive collisions.
-
-<br><br>
-
-The average number of molecules per unit volume of the gas is constant.
-
-<br><br>
-
-The inter-molecular force of attraction between the two molecules is negligible.
-
-<br><br>
-
-The actual volume occupied by the gas molecules is very small as compared to the total volume of the gas.
-
-<br><br>
-
-The average KE of the gas molecule is directly proportional to the absolute temperature of the gas.
-
-<br><br>
-
-The distance covered by the molecule between two successive collisions is called free path.
-
-<br><br>
-
-The average distance covered by the molecule between two successive collisions is called mean free path.
-
-<br><br>
-
-<b>NOTE</b>
-
-<br><br>
-
-Mean free path is measures in Angstrom unit or meter.
-
-<br><br>
-
-<b>Remember this:</b>
-
-<br><br>
-
-Higher the density, more will be the collisions and smaller will be the mean free path λ. It is also seen that λ is inversely proportional to the size of the molecule, say the diameter d. Smaller the size of the molecule, less is the chance for collision and larger is the mean free path. Further, λ is inversely proportional to d², not just d, because it depends on the cross section of a molecule. It can be shown that
-
-<div class="formula">
-λ = 1 / [√2 π d² (N/V)]
-</div>
-
-Let λ₁, λ₂, λ₃, … λ<sub>N</sub> be the free paths then
-
-<div class="formula">
-λ = (λ₁ + λ₂ + λ₃ + … + λ<sub>N</sub>) / N
-</div>
-
-</div>
-
-
-<h3 class="section">Q5 Derive an expression for Average pressure of gas using kinetic theory of gases and radiation</h3>
-
-<div class="question">
-
-<b>Ans:</b> Consider an ideal gas enclosed in a cubical vessel of length L. Suppose there are N molecules in a gas which are moving with velocities v.
-
-<br><br>
-
-If we consider any single molecule than its instantaneous velocity v can be expressed as
-
-<div class="formula">
-v = v<sub>x</sub> i + v<sub>y</sub> j + v<sub>z</sub> k
-</div>
-
-Due to random motion of the molecule v<sub>x</sub> = v<sub>y</sub> = v<sub>z</sub>
-
-<br><br>
-
-Suppose a molecule 1 of mass m is moving with a velocity v<sub>x</sub> towards the face ABCD. It strikes the face of the cubical vessel and returns back to strike the opposite face.
-
-<br><br>
-
-Change in Momentum molecule = Final Momentum – Initial Momentum
-
-<div class="formula">
-Δp = -m v<sub>x</sub> - m v<sub>x</sub> = -2 m v<sub>x</sub>
-</div>
-
-Momentum transferred to the wall of the vessel per molecule per collision
-
-<div class="formula">
-P = 2 m v<sub>x</sub>
-</div>
-
-The distance travelled by the molecule in going to face ABCD and coming back is 2L. So, the time between two successive collision is
-
-<div class="formula">
-Δt = 2L / v<sub>x</sub>
-</div>
-
-Force exerted on the shaded wall by molecule 1 is
-
-<br><br>
-
-Average force = Average rate of change of momentum
-
-<div class="formula">
-2 m v<sub>x</sub> / Δt = 2 m v<sub>x</sub> / (2L / v<sub>x</sub>) = m v<sub>x</sub>² / L
-</div>
-
-Considering other molecules 2, 3, 4 ... with the respective x components of velocities v<sub>x2</sub>, v<sub>x3</sub>, v<sub>x4</sub> … the total average force on the wall is given by
-
-<div class="formula">
-F<sub>x</sub> = m/L (v<sub>x1</sub>² + v<sub>x2</sub>² + v<sub>x3</sub>² + …)
-</div>
-
-Average pressure = Average Force / Area of Shaded wall
-
-<div class="formula">
-= m(v<sub>x1</sub>² + v<sub>x2</sub>² + v<sub>x3</sub>² + …) / (L · L²)
-</div>
-
-[∴ Area = L²]
-
-<br><br>
-
-The average velocity
-
-<div class="formula">
-v̄<sub>x</sub>² = (v<sub>x1</sub>² + v<sub>x2</sub>² + v<sub>x3</sub>² + …) / N
-</div>
-
-∴
-
-<div class="formula">
-P = mN v̄<sub>x</sub>² / V
-</div>
-
-As v<sub>x</sub> = v<sub>y</sub> = v<sub>z</sub>
-
-<div class="formula">
-v̄<sub>x</sub>² = 1/3 v̄²
-</div>
-
-<div class="formula">
-v̄² = v̄<sub>x</sub>² + v̄<sub>y</sub>² + v̄<sub>z</sub>²
-</div>
-
-∴
-
-<div class="formula">
-P = 1/3 · mN v̄² / V
-</div>
-
-∴
-
-<div class="formula">
-P = 1/3 ρ v̄²
-</div>
-
-[∴ mN/V = ρ]
-
-</div>
-
-
-<h3 class="section">Q6 Obtain Root Mean Square Velocity Expression</h3>
-
-<div class="question">
-
-<b>Ans: We Know that</b>
-
-<div class="formula">
-P = mN v̄² / 3V ⇒ v̄² = 3PV / mN
-</div>
-
-<div class="formula">
-v<sub>rms</sub> = √v̄² = √(3PV / mN)
-</div>
-
-<div class="formula">
-= √(3RT / M) [Using PV = nRT]
-</div>
-
-<div class="formula">
-= √(3RT / mN) [n = N/N<sub>A</sub>] [M₀ = mN<sub>A</sub>]
-</div>
-
-Where N = no. of molecules, m = mass of 1 molecule
-
-<br><br>
-
-V = volume, V<sub>rms</sub> = RMS Velocity, T = Temperature of gas
-
-<br><br>
-
-N<sub>A</sub> = Avogadro Number, M₀ = Molar Mass of Gas
-
-</div>
-
-
-<h3 class="section">Q7 Obtain Expression for Kinetic Energy</h3>
-
-<div class="question">
-
-<b>Ans: Kinetic Energy</b>
-
-<div class="formula">
-P = mN v̄² / 3V ⇒ PV = 1/3 M v̄² [M = mN]
-</div>
-
-∴
-
-<div class="formula">
-PV = 2/3 · 1/2 M v̄²
-</div>
-
-[E = kinetic energy = 1/2 M v̄²]
-
-<br><br>
-
-∴
-
-<div class="formula">
-PV = 2/3 E ⇒ E = 3/2 PV
-</div>
-
-<div class="formula">
-E = 3/2 Nk<sub>B</sub>T [∴ PV = Nk<sub>B</sub>T ideal gas equation]
-</div>
-
-<div class="formula">
-E/N = 3/2 k<sub>B</sub>T
-</div>
-
-this is kinetic energy per unit molecule.
-
-<br><br>
-
-This means that the average energy per molecule is proportional to the absolute temperature T of the gas.
-
-</div>
-
-
-<h3 class="section">Q8 Define Degree of Freedom</h3>
-
-<div class="question">
-
-<b>Ans:</b> Degrees of freedom of a system are defined as the total number of coordinates or independent quantities required to describe the position and configuration of the system completely.
-
-<br><br>
-
-In Diatomic molecule two categories are divided a. rigid rotator b. Non-Rigid vibrating Molecules
-
-<br><br>
-
-For Non rigid vibrating molecule two degree of freedom of vibrations are present
-
-<div class="formula">
-KE (Translational) = 1/2 Mv²
-</div>
-
-<div class="formula">
-KE (rotational) = 1/2 Iω²
-</div>
-
-<div class="formula">
-KE (vibrational) = 1/2 Mu² + 1/2 kr²
-</div>
-
-The degrees of freedom of the system is given by
-
-<div class="formula">
-f = 3N - k
-</div>
-
-For monoatomic gas, N = 1 and k = 0
-
-<div class="formula">
-f = 3 × 1 - 0 = 3
-</div>
-
-Therefore, a monoatomic gas molecule has 3 degrees of freedom.
-
-<br><br>
-
-For diatomic gas, N = 2 and k = 1
-
-<div class="formula">
-f = 3 × 2 - 1 = 5
-</div>
-
-Therefore, a diatomic gas molecule has 5 degrees of freedom.
-
-<br><br>
-
-For polyatomic gas, N = 3 and k = 3
-
-<div class="formula">
-f = 3 × 3 - 3 = 6
-</div>
-
-Therefore, a polyatomic gas molecule has 6 degrees of freedom.
-
-</div>
-
-
-<h3 class="section">Q9 Explain Specific Heat</h3>
-
-<div class="question">
-
-<b>Ans:</b> The amount of heat energy required to raise the temperature of a unit mass of an object by 1°C is called the specific heat of that object.
-
-<br><br>
-
-When the temperature of a gas is increased, even a small rise causes considerable change in volume and pressure. Therefore two specific heats are defined for gases, namely specific heat at constant volume C<sub>V</sub> and specific heat at constant pressure C<sub>P</sub>.
-
-</div>
-
-
-<h3 class="section">Q10 Derive an Expression for Mayers Relation</h3>
-
-<div class="question">
-
-<b>Ans: Mayer’s Relation (C<sub>P</sub> - C<sub>V</sub> = R)</b>
-
-<br><br>
-
-Consider 1 mole of an ideal gas that is enclosed in a cylinder by light frictionless air tight piston. Let P, V and T be the pressure, volume and temperature respectively of the gas.
-
-<br><br>
-
-If the gas is heated so that its temperature rises by dT, but the volume remains constant. Since, volume of the gas is constant, no work is done in moving the piston.
-
-<div class="formula">
-dQ₁ = dE = C<sub>V</sub>dT …(1)
-</div>
-
-where C<sub>V</sub> is the molar specific heat of the gas at constant volume.
-
-<br><br>
-
-On the other hand, if the gas is heated to the same temperature at constant pressure, volume of the gas increases by an amount say dV. Since work is done to move piston, the work done to move the piston
-
-<div class="formula">
-dW = P dV
-</div>
-
-<div class="formula">
-dQ₂ = dE + dW = C<sub>P</sub>dT …(2)
-</div>
-
-where C<sub>P</sub> is the molar specific heat of the gas at constant pressure.
-
-<br><br>
-
-But dE = C<sub>V</sub>dT from Eq. (1) as the internal energy of an ideal gas depends only on its temperature.
-
-<div class="formula">
-C<sub>P</sub>dT = C<sub>V</sub>dT + dW
-</div>
-
-or,
-
-<div class="formula">
-(C<sub>P</sub> - C<sub>V</sub>)dT = P dV …(3)
-</div>
-
-For one mole of gas,
-
-<div class="formula">
-PV = RT
-</div>
-
-∴
-
-<div class="formula">
-P dV = R dT
-</div>
-
-since pressure is constant. Substituting in Eq. (3), we get
-
-<div class="formula">
-(C<sub>P</sub> - C<sub>V</sub>)dT = R dT
-</div>
-
-∴
-
-<div class="formula">
-C<sub>P</sub> - C<sub>V</sub> = R
-</div>
-
-This is known as Mayer’s relation between C<sub>P</sub> and C<sub>V</sub>.
-
-<br><br>
-
-<b>Note:</b>
-
-<br><br>
-
-The above relation then is modified to
-
-<div class="formula">
-C<sub>P</sub> - C<sub>V</sub> = R/J
-</div>
-
-where J is mechanical equivalent of heat.
-
-<br><br>
-
-Also C<sub>P</sub> = M₀S<sub>P</sub> and C<sub>V</sub> = M₀S<sub>V</sub>, where M₀ is the molar mass of the gas and S<sub>P</sub> and S<sub>V</sub> are respective principal specific heats.
-
-<div class="formula">
-S<sub>P</sub> - S<sub>V</sub> = R / M₀
-</div>
-
-<div class="formula">
-M₀S<sub>P</sub> - M₀S<sub>V</sub> = R / J
-</div>
-
-</div>
-
-
-<h3 class="section">Q11 Define Diathermanous body</h3>
-
-<div class="question">
-
-<b>Ans:</b> The body which is transparent to the heat radiation is called diathermanous body.
-
-</div>
-
-
-<h3 class="section">Q12 Athermanous substance</h3>
-
-<div class="question">
-
-<b>Ans:</b> The body through which heat radiation do not transmit is called athermanous body/substance. Athermanous body/substances are opaque to the heat radiation. Here t = 0 (Q = 0) & a + r = 1 Ex. Water, wood, benzene, alcohol, copper, iron etc.
-
-</div>
-
-
-<h3 class="section">Q13 Define Coefficient of absorption (a)</h3>
-
-<div class="question">
-
-<b>Ans:</b> The ratio of total amount of radiant heat absorbed by the body to the total amount of radiant heat incident on it is called coeff. of absorption (a).
-
-<div class="formula">
-a = Q<sub>a</sub> / Q
-</div>
-
-where, a = coefficient of absorption or absorptivity or absorptance or absorptive power.
-
-</div>
-
-
-<h3 class="section">Q14 Define Coefficient of Reflection (r)</h3>
-
-<div class="question">
-
-<b>Ans:</b> The ratio of amount of radiant heat reflected by the body to the total amount of heat incident on it is called as coefficient of reflection.
-
-<div class="formula">
-r = Q<sub>r</sub> / Q
-</div>
-
-where r = coefficient of reflection or reflecting power or reflectivity or reflectance.
-
-</div>
-
-
-<h3 class="section">Q15 Define Coefficient of Transmission (t)</h3>
-
-<div class="question">
-
-<b>Ans:</b> The ratio of amount of radiant heat transferred through the body to the total amount of radiant heat incident on it is called as coefficient of transmission.
-
-<div class="formula">
-t = Q<sub>t</sub> / Q
-</div>
-
-Where, t = coefficient of transmission or transmitting power or transmissivity or transmittance.
-
-</div>
-
-
-<h3 class="section">Q16 Obtain the relation between a, r & t</h3>
-
-<div class="question">
-
-<b>Ans:</b> Let Q be the total radiant heat incident on the body. Let Q<sub>a</sub>, Q<sub>r</sub> & Q<sub>t</sub> be the heat absorbed, reflected & transmitted by the body respectively.
-
-<br><br>
-
-The total radiant heat is given by
-
-<div class="formula">
-Q = Q<sub>a</sub> + Q<sub>r</sub> + Q<sub>t</sub>
-</div>
-
-Divide the equation by Q, we get
-
-<div class="formula">
-Q/Q = Q<sub>a</sub>/Q + Q<sub>r</sub>/Q + Q<sub>t</sub>/Q
-</div>
-
-<div class="formula">
-1 = a + r + t
-</div>
-
-<div class="formula">
-a + r + t = 1
-</div>
-
-This is the relation between the coefficient of absorption, coefficient of reflection and coefficient of transmission.
-
-</div>
-
-
-<h3 class="section">Q17 What is perfect black body?</h3>
-
-<div class="question">
-
-<b>Ans:</b> A body which absorbs all the radiant energy incident upon it is called a perfectly black body.
-
-<div class="formula">
-a = Q<sub>a</sub> / Q = 1
-</div>
-
-(where r = 0 and t = 0)
-
-</div>
-
-
-<h3 class="section">Q18 Explain the construction and working of Ferry’s black body.</h3>
+<!-- Q3 -->
+
+<h3 class="section">
+Q3. What is Equation of State?
+</h3>
 
 <div class="question">
 
 <b>Ans:</b>
 
-<br>
-
-i. Ferry’s perfectly blackbody consists of a double walled hollow sphere having tiny hole or aperture, through which radiant heat can enter.
-
-<br><br>
-
-ii. The space between the walls is evacuated and outer surface of the sphere is silvered.
+For a gas, its state is specified by physical quantities
+such as pressure P, temperature T, volume V and internal
+energy E.
 
 <br><br>
 
-iii. The inner surface of sphere is coated with lampblack.
-
-<br><br>
-
-iv. There is a conical projection on the inner surface of sphere opposite the aperture. The projection ensures that a ray travelling along the axis of the aperture is not incident normally on the surface and is therefore not reflected back along the same path.
-
-<br><br>
-
-A heat ray entering the sphere through the aperture suffers multiple reflections and is almost completely absorbed inside.
-
-<br><br>
-
-Thus, the aperture behaves like a perfect blackbody.
-
-<br><br>
-
-vi. The effective area of perfectly blackbody is equal to the area of the aperture.
+The equation relating these physical quantities is known
+as the <b>equation of state</b>.
 
 </div>
 
 
-<h3 class="section">Q19 Define Emissive power</h3>
+<!-- Q4 -->
+
+<h3 class="section">
+Q4. Write the assumptions of kinetic theory of gases
+</h3>
 
 <div class="question">
 
-Emissive power of a body at given temperature is defined as the quantity of radiant energy emitted by the body per unit time per unit surface area of the body at that temperature.
+<b>Ans:</b>
+
+1. Gas consists of a large number of extremely small
+particles called molecules.
 
 <br><br>
 
-Every body radiates energy at all temperatures except at the absolute zero temperature.
+2. All molecules of the same gas are identical.
+
+<br><br>
+
+3. Molecules are rigid and perfectly elastic spheres.
+
+<br><br>
+
+4. Gas molecules are in random motion.
+
+<br><br>
+
+5. Molecules continuously collide with one another and
+with the walls of the container.
+
+<br><br>
+
+6. These collisions are perfectly elastic.
+
+<br><br>
+
+7. A molecule travels in a straight line with uniform
+speed between two successive collisions.
+
+<br><br>
+
+8. Collision time is very small compared with the time
+between two successive collisions.
+
+<br><br>
+
+9. The average number of molecules per unit volume is
+constant.
+
+<br><br>
+
+10. Intermolecular forces are negligible.
+
+<br><br>
+
+11. Actual volume occupied by molecules is very small
+compared with the volume of the gas.
+
+<br><br>
+
+12. Average kinetic energy of gas molecules is directly
+proportional to absolute temperature.
+
+<br><br>
+
+<b>Mean Free Path:</b>
+
+The average distance travelled by a molecule between
+two successive collisions is called mean free path.
+
+<div class="formula">
+λ = 1 / [√2 π d² (N/V)]
+</div>
+
+Average mean free path:
+
+<div class="formula">
+λ = (λ₁ + λ₂ + λ₃ + ... + λN) / N
+</div>
+
+</div>
+
+
+<!-- Q5 -->
+
+<h3 class="section">
+Q5. Derive an expression for average pressure of gas
+using kinetic theory
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+Consider an ideal gas enclosed in a cubical vessel
+of side L.
+
+<br><br>
+
+Suppose a molecule of mass m moves with velocity vₓ
+towards one wall.
+
+<br><br>
+
+Change in momentum:
+
+<div class="formula">
+Δp = -mvₓ - mvₓ
+</div>
+
+<div class="formula">
+Δp = -2mvₓ
+</div>
+
+Momentum transferred to wall:
+
+<div class="formula">
+2mvₓ
+</div>
+
+Time between two collisions:
+
+<div class="formula">
+Δt = 2L / vₓ
+</div>
+
+Average force:
+
+<div class="formula">
+F = mvₓ² / L
+</div>
+
+For N molecules:
+
+<div class="formula">
+F = m/L (vₓ₁² + vₓ₂² + ...)
+</div>
+
+Pressure is:
+
+<div class="formula">
+P = F/A
+</div>
+
+Since area A = L²:
+
+<div class="formula">
+P = mN v̄ₓ² / V
+</div>
+
+Due to random motion:
+
+<div class="formula">
+v̄ₓ² = 1/3 v̄²
+</div>
+
+Therefore:
+
+<div class="formula">
+P = 1/3 (mN/V) v̄²
+</div>
+
+Since:
+
+<div class="formula">
+ρ = mN/V
+</div>
+
+Therefore:
+
+<div class="formula">
+P = 1/3 ρv̄²
+</div>
+
+</div>
+
+
+<!-- Q6 -->
+
+<h3 class="section">
+Q6. Obtain Root Mean Square Velocity Expression
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+We know:
+
+<div class="formula">
+P = mN v̄² / 3V
+</div>
+
+Therefore:
+
+<div class="formula">
+v̄² = 3PV / mN
+</div>
+
+Hence RMS velocity:
+
+<div class="formula">
+v<sub>rms</sub> = √(3PV / mN)
+</div>
+
+Using ideal gas equation:
+
+<div class="formula">
+v<sub>rms</sub> = √(3RT / M)
+</div>
+
+Where:
+
+<br>
+R = gas constant<br>
+T = absolute temperature<br>
+M = molar mass
+
+</div>
+
+
+<!-- Q7 -->
+
+<h3 class="section">
+Q7. Obtain expression for Kinetic Energy
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+From kinetic theory:
+
+<div class="formula">
+PV = 1/3 Mv̄²
+</div>
+
+Kinetic energy:
+
+<div class="formula">
+E = 1/2 Mv̄²
+</div>
+
+Therefore:
+
+<div class="formula">
+PV = 2/3 E
+</div>
+
+Hence:
+
+<div class="formula">
+E = 3/2 PV
+</div>
+
+Using:
+
+<div class="formula">
+PV = Nk<sub>B</sub>T
+</div>
+
+Therefore:
+
+<div class="formula">
+E = 3/2 Nk<sub>B</sub>T
+</div>
+
+Kinetic energy per molecule:
+
+<div class="formula">
+E/N = 3/2 k<sub>B</sub>T
+</div>
+
+Thus average kinetic energy per molecule is directly
+proportional to absolute temperature.
+
+</div>
+
+
+<!-- Q8 -->
+
+<h3 class="section">
+Q8. Define Degree of Freedom
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+Degrees of freedom of a system are defined as the total
+number of independent coordinates required to completely
+describe the position and configuration of the system.
+
+<br><br>
+
+<b>Translational kinetic energy:</b>
+
+<div class="formula">
+K.E. = 1/2 Mv²
+</div>
+
+<b>Rotational kinetic energy:</b>
+
+<div class="formula">
+K.E. = 1/2 Iω²
+</div>
+
+For a monoatomic gas:
+
+<div class="formula">
+f = 3
+</div>
+
+For a diatomic gas at ordinary temperatures:
+
+<div class="formula">
+f = 5
+</div>
+
+For a polyatomic molecule, the degrees of freedom depend
+on its structure and active modes of motion.
+
+</div>
+
+
+<!-- Q9 -->
+
+<h3 class="section">
+Q9. Explain Specific Heat
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+The amount of heat energy required to raise the
+temperature of unit mass of an object by 1°C is called
+specific heat.
+
+<br><br>
+
+For gases, two specific heats are defined:
+
+<br><br>
+
+<b>1. C<sub>V</sub></b> = Specific heat at constant volume
+
+<br><br>
+
+<b>2. C<sub>P</sub></b> = Specific heat at constant pressure
+
+</div>
+
+
+<!-- Q10 -->
+
+<h3 class="section">
+Q10. Derive an expression for Mayer's Relation
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+For one mole of an ideal gas:
+
+<br><br>
+
+At constant volume:
+
+<div class="formula">
+dQ₁ = dE = C<sub>V</sub>dT
+</div>
+
+At constant pressure:
+
+<div class="formula">
+dQ₂ = dE + dW
+</div>
+
+Therefore:
+
+<div class="formula">
+C<sub>P</sub>dT = C<sub>V</sub>dT + PdV
+</div>
+
+Hence:
+
+<div class="formula">
+(C<sub>P</sub> - C<sub>V</sub>)dT = PdV
+</div>
+
+For one mole:
+
+<div class="formula">
+PV = RT
+</div>
+
+At constant pressure:
+
+<div class="formula">
+PdV = RdT
+</div>
+
+Therefore:
+
+<div class="formula">
+C<sub>P</sub> - C<sub>V</sub> = R
+</div>
+
+This is called <b>Mayer's relation</b>.
+
+</div>
+
+
+<!-- Q11 -->
+
+<h3 class="section">
+Q11. Define Diathermanous Body
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+A body which allows heat radiation to pass through it
+is called a <b>diathermanous body</b>.
+
+</div>
+
+
+<!-- Q12 -->
+
+<h3 class="section">
+Q12. Define Athermanous Substance
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+A body through which heat radiation cannot pass is called
+an <b>athermanous body or substance</b>.
+
+<br><br>
+
+Such substances are opaque to heat radiation.
+
+</div>
+
+
+<!-- Q13 -->
+
+<h3 class="section">
+Q13. Define Coefficient of Absorption
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+The ratio of the total radiant heat absorbed by a body
+to the total radiant heat incident on it is called
+coefficient of absorption.
+
+<div class="formula">
+a = Q<sub>a</sub> / Q
+</div>
+
+</div>
+
+
+<!-- Q14 -->
+
+<h3 class="section">
+Q14. Define Coefficient of Reflection
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+The ratio of the amount of radiant heat reflected by
+a body to the total radiant heat incident on it is called
+coefficient of reflection.
+
+<div class="formula">
+r = Q<sub>r</sub> / Q
+</div>
+
+</div>
+
+
+<!-- Q15 -->
+
+<h3 class="section">
+Q15. Define Coefficient of Transmission
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+The ratio of the amount of radiant heat transmitted
+through a body to the total radiant heat incident on it
+is called coefficient of transmission.
+
+<div class="formula">
+t = Q<sub>t</sub> / Q
+</div>
+
+</div>
+
+
+<!-- Q16 -->
+
+<h3 class="section">
+Q16. Obtain the relation between a, r and t
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+Let Q be the total radiant heat incident on a body.
+
+Let:
+
+<br><br>
+
+Q<sub>a</sub> = absorbed heat<br>
+Q<sub>r</sub> = reflected heat<br>
+Q<sub>t</sub> = transmitted heat
+
+<br><br>
+
+Therefore:
+
+<div class="formula">
+Q = Q<sub>a</sub> + Q<sub>r</sub> + Q<sub>t</sub>
+</div>
+
+Dividing by Q:
+
+<div class="formula">
+1 = a + r + t
+</div>
+
+Hence:
+
+<div class="formula">
+a + r + t = 1
+</div>
+
+</div>
+
+
+<!-- Q17 -->
+
+<h3 class="section">
+Q17. What is a Perfect Black Body?
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+A body which absorbs all the radiant energy incident
+upon it is called a <b>perfect black body</b>.
+
+<div class="formula">
+a = 1
+</div>
+
+For a perfect black body:
+
+<div class="formula">
+r = 0, &nbsp; t = 0
+</div>
+
+</div>
+
+
+<!-- Q18 -->
+
+<h3 class="section">
+Q18. Explain construction and working of Ferry's black body
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+1. Ferry's black body consists of a double-walled hollow
+sphere having a small aperture.
+
+<br><br>
+
+2. The space between the walls is evacuated and the
+outer surface is silvered.
+
+<br><br>
+
+3. The inner surface is coated with lampblack.
+
+<br><br>
+
+4. A conical projection is provided opposite the aperture.
+
+<br><br>
+
+5. Radiation entering through the aperture undergoes
+multiple reflections.
+
+<br><br>
+
+6. Almost all the radiation is absorbed inside the sphere.
+
+<br><br>
+
+Thus, the aperture behaves like a perfect black body.
+
+</div>
+
+
+<!-- Q19 -->
+
+<h3 class="section">
+Q19. Define Emissive Power
+</h3>
+
+<div class="question">
+
+<b>Ans:</b>
+
+Emissive power of a body at a given temperature is
+defined as the quantity of radiant energy emitted by
+the body per unit time per unit surface area.
 
 <div class="formula">
 R = Q / At
 </div>
 
-Q = amount of radiant energy emitted, A = surface area of the body, t = time for which the body radiates the energy, R = Emissive power.
-
-<br><br>
-
-Dimensions of emissive power are [L⁰ M¹ T⁻³] and SI unit is J m⁻² s⁻¹ or W/m².
+Every body radiates energy at all temperatures except
+absolute zero temperature.
 
 </div>
 
 
-<h3 class="section">Q20 On What factors Heat radiation depends?</h3>
+<!-- EXTRA IMPORTANT FORMULAS -->
+
+<h3 class="section">
+⭐ Quick Revision Formulae
+</h3>
 
 <div class="question">
 
-<b>Ans:</b> Amount of heat radiated by a body depends on
-
-<br><br>
-
-• The absolute temperature of the body (T)
-
-<br>
-
-• The nature of the body – the material, nature of surface – polished or not, etc.
-
-<br>
-
-• Surface area of the body (A)
-
-<br>
-
-• Time duration of for which body emits radiation (t)
-
-</div>
-
-
-<h3 class="section">Q21 Define coefficient of emission</h3>
-
-<div class="question">
-
-<b>Ans:</b> coefficient of emission The coefficient of emission or emissivity (e) of a given surface is the ratio of the emissive power R of the surface to the emissive power R<sub>b</sub> of a perfect black surface, at the same temperature. For a perfect blackbody e = 1, whereas for a perfect reflector e = 0.
-
 <div class="formula">
-e = R / R<sub>b</sub>
-</div>
-
-</div>
-
-
-<h3 class="section">Q22 State and proof Kirchhoff’s Law of Heat Radiation</h3>
-
-<div class="question">
-
-<b>Ans:</b> Kirchhoff’s Law of Heat Radiation and its Theoretical Proof:
-
-<br><br>
-
-It states that at a given temperature, the ratio of emissive power to coefficient of absorption of a body is equal to the emissive power of a perfect blackbody at the same temperature for all wavelengths.
-
-<br><br>
-
-Symbolically, a = e or more specifically a(λ) = e(λ).
-
-<br><br>
-
-R<sub>b</sub> = emissive power of blackbody B
-
-<br>
-
-R = emissive power of body A
-
-<br>
-
-a = coefficient of absorption of body A
-
-<br><br>
-
-If Q is the quantity of radiant heat incident on each body in unit time and Q<sub>a</sub> is the quantity of radiant heat absorbed by the body A, then
-
-<div class="formula">
-Q<sub>a</sub> = aQ
-</div>
-
-As the temperatures of the body A and blackbody B remain the same, both must emit the same amount as they absorb in unit time.
-
-<br><br>
-
-Quantity of radiant heat absorbed by body A = Quantity of heat emitted by body A
-
-<div class="formula">
-aQ = R …(1)
-</div>
-
-For Blackbody
-
-<div class="formula">
-Q = R<sub>b</sub>
-</div>
-
-(as a = 1) …(2)
-
-∴
-
-<div class="formula">
-a = R / R<sub>b</sub>
-</div>
-
-[By dividing eqn 1 and 2]
-
-<br><br>
-
-But
-
-<div class="formula">
-e = R / R<sub>b</sub>
-</div>
-
-∴
-
-<div class="formula">
-a = e
-</div>
-
-<br><br>
-
-<b>Alternative Statement:</b>
-
-<br><br>
-
-If a body has high emissive power, it also has high absorptive power and If a body has low emissive power, it also has low absorptive power.
-
-</div>
-
-
-<h3 class="section">Q23 Explain the Spectral distribution of Black body radiation</h3>
-
-<div class="question">
-
-<b>Ans: Spectral distribution of Black body radiation</b>
-
-<br><br>
-
-Lumber and Pringsheim stated energy distribution spectrum of black body in terms of wave length. Their experimental result is shown in follow graph. Each curve represents the intensity of radiation against the wave length (λ) for a given temperature of the source.
-
-<br><br>
-
-<b>[Graph showing Radiant power vs wavelength with curves for 1500 K, 1800 K, 2000 K, 2500 K, 3000 K]</b>
-
-<br><br>
-
-From experimental curves, it is observed that
-
-<br><br>
-
-at a given temperature, the energy is not uniformly distributed in the spectrum (i.e., as a function of wavelength) of blackbody.
-
-<br><br>
-
-at a given temperature, the radiant power emitted initially increases with increase of wavelength, reaches its maximum and then decreases. The wavelength corresponding to the radiation of maximum intensity, λ<sub>max</sub> is characteristic of the temperature of the radiating body. (Remember, it is not the maximum wavelength emitted by the object), area under the curve represents total energy emitted per unit time per unit area by the blackbody at all wavelengths.
-
-<br><br>
-
-as the temperature increases, the peak of the curves shifts towards the left – shorter wavelengths, i.e., the value of λ<sub>max</sub> decreases with increase in temperature.
-
-<br><br>
-
-at higher temperatures, the radiant power, or total energy emitted per unit time per unit area (i.e., the area under the curve) corresponding to all the wavelengths increases,
-
-<br><br>
-
-at a temperature of 300 K (around room temperature), the most intense of these waves has a wavelength of about 5 × 10⁻⁶ m; the radiant power is smaller for wavelengths different from this value. Practically all the radiant energy at this temperature is carried by waves longer than those corresponding to red light. These are infrared radiations.
-
-</div>
-
-
-<h3 class="section">Q24 State the Wien’s displacement law</h3>
-
-<div class="question">
-
-<b>Ans: Wien’s displacement law:-</b>
-
-<br><br>
-
-It is observed that the wavelength, for which emissive power of a blackbody is maximum, is inversely proportional to the absolute temperature of the blackbody. This is Wien’s displacement law.
-
-<div class="formula">
-λ<sub>max</sub> ∝ 1/T
-</div>
-
-<div class="formula">
-λ<sub>max</sub> · T = constant
-</div>
-
-For λ<sub>m</sub> · T = b (constant)
-
-<br><br>
-
-The value b is 2.897 × 10⁻³ mK
-
-<br><br>
-
-The unit of Wien’s constant (b) is mK & it’s dimension is [L θ]
-
-<br><br>
-
-This law is useful to determine temperatures of distant stars, Sun, moon etc.
-
-</div>
-
-
-<h3 class="section">Q25 State Stefan-Boltzmann Law of Radiation</h3>
-
-<div class="question">
-
-<b>Ans:</b> Stefan-Boltzmann Law of Radiation States that “The rate of emission of radiant energy per unit area or the power radiated per unit area of a perfect blackbody is directly proportional to the fourth power of its absolute temperature”
-
-<br><br>
-
-According to Stefan’s law,
-
-<div class="formula">
-R ∝ T⁴
-</div>
-
-<div class="formula">
-R = σT⁴
-</div>
-
-Where σ is Stefan’s constant and is equal to 5.67 × 10⁻⁸ J m⁻² s⁻¹ K⁻⁴ or W m⁻² K⁻⁴ and Dimensions of σ are [L⁰ M¹ T⁻³ K⁻⁴]
-
-</div>
-
-
-<h3 class="section">Quick Revision – Chapter 3</h3>
-
-<div class="formula">
-
 PV = nRT
+</div>
 
-<br><br>
+<div class="formula">
+P = 1/3 ρv²
+</div>
 
-P = 1/3 ρv̄²
-
-<br><br>
-
+<div class="formula">
 v<sub>rms</sub> = √(3RT/M)
+</div>
 
-<br><br>
+<div class="formula">
+E = 3/2 Nk<sub>B</sub>T
+</div>
 
-E = 3/2 PV
-
-<br><br>
-
+<div class="formula">
 C<sub>P</sub> - C<sub>V</sub> = R
+</div>
 
-<br><br>
-
+<div class="formula">
 a + r + t = 1
+</div>
 
-<br><br>
+<div class="formula">
+R = Q / At
+</div>
 
-e = R/R<sub>b</sub>
+</div>
 
-<br><br>
-
-λ<sub>max</sub>T = b
-
-<br><br>
-
-R = σT⁴
+</div>
 
 </div>
 
 
-<h3>Note Writing – Soham Dhoran</h3>
+<footer>
 
-  
-<h3>4. Thermodynamics</h3>  
-<p>Coming soon</p>  
-</div>  <div class="chapter">  
-<h3>5. Oscillations</h3>  
-<p>Coming soon</p>  
-</div>  <div class="chapter">  
-<h3>6. Superposition of Waves</h3>  
-<p>Coming soon</p>  
-</div>  <div class="chapter">  
-<h3>7. Wave Optics</h3>  
-<p>Coming soon</p>  
-</div>  <div class="chapter">  
-<h3>8. Electrostatics</h3>  
-<p>Coming soon</p>  
-</div>  <div class="chapter">  
-<h3>9. Current Electricity</h3>  
-<p>Coming soon</p>  
-</div>  <div class="chapter">  
-<h3>10. Magnetic Fields due to Electric Current</h3>  
-<p>Coming soon</p>  
-</div>  <div class="chapter">  
-<h3>11. Magnetic Materials</h3>  
-<p>Coming soon</p>  
-</div>  <div class="chapter">  
-<h3>12. Electromagnetic Induction</h3>  
-<p>Coming soon</p>  
-</div>  <div class="chapter">  
-<h3>13. AC Circuits</h3>  
-<p>Coming soon</p>  
-</div>  <div class="chapter">  
-<h3>14. Dual Nature of Radiation and Matter</h3>  
-<p>Coming soon</p>  
-</div>  <div class="chapter">  
-<h3>15. Structure of Atoms and Nuclei</h3>  
-<p>Coming soon</p>  
-</div>  <div class="chapter">  
-<h3>16. Semiconductor Devices</h3>  
-<p>Coming soon</p>  
-</div>  </div>  <!-- ================= CHAPTER 1 ================= -->  <div id="rotational" class="content">  <button onclick="closeChapter()">← Back to Chapters</button>
+© 2026 LearnGrow | Class 12 Maharashtra HSC Physics
 
-<h2>Chapter 1: Rotational Dynamics</h2>  <h3>📖 Core Definitions & Concepts</h3>  <div class="question">  <b>1. Circular Motion</b><br>
+</footer>
 
-The motion of an object along the circumference of a circle is called circular motion.
 
-<br><br>
+<script>
 
-Examples: merry-go-round, vehicle taking a turn, satellite around a planet.
+/* ================= OPEN CHAPTER ================= */
 
-</div>  <div class="question">  <b>2. Characteristics of Circular Motion</b><br>
+function openChapter(id){
 
-• It is accelerated motion because the direction of velocity continuously changes.<br>
+  document.getElementById("chapters").style.display = "none";
 
-• It is periodic motion because the particle repeats the same path.
+  document.getElementById("search").style.display = "none";
 
-</div>  <div class="question">  <b>3. Radius Vector</b><br>
+  let contents = document.querySelectorAll(".content");
 
-A vector describing the position of a particle performing circular motion with respect to the centre of the circle.
+  contents.forEach(function(content){
+    content.style.display = "none";
+  });
 
-</div>  <div class="question">  <b>4. Angular Displacement</b><br>
+  document.getElementById(id).style.display = "block";
 
-The angle described by the radius vector in a given time at the centre of the circle.
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
 
-<br><br>
 
-SI unit: radian<br>
+/* ================= CLOSE CHAPTER ================= */
 
-It is dimensionless.
+function closeChapter(){
 
-</div>  <div class="formula">  θ = s / r
+  let contents = document.querySelectorAll(".content");
 
-<br>  s = rθ
+  contents.forEach(function(content){
+    content.style.display = "none";
+  });
 
-</div>  <div class="question">  <b>5. Angular Velocity</b><br>
+  document.getElementById("chapters").style.display = "block";
 
-Angular velocity is the rate of change of angular displacement with respect to time.
+  document.getElementById("search").style.display = "block";
 
-<br><br>
+  document.getElementById("search").value = "";
 
-SI unit: rad/s<br>
+  searchChapters();
 
-It is a vector quantity.
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
 
-</div>  <div class="formula">  ω = Δθ / Δt
 
-<br><br>
+/* ================= DARK MODE ================= */
 
-v = rω
+function toggleDark(){
 
-</div>  <div class="question">  <b>6. Angular Acceleration</b><br>
+  document.body.classList.toggle("dark");
 
-Angular acceleration is the rate of change of angular velocity with respect to time.
+}
 
-<br><br>
 
-SI unit: rad/s²
+/* ================= SEARCH ================= */
 
-</div>  <div class="formula">  α = Δω / Δt
+function searchChapters(){
 
-</div>  <div class="question">  <b>7. Uniform Circular Motion</b><br>
+  let input =
+    document.getElementById("search")
+    .value
+    .toLowerCase();
 
-Motion of a particle along the circumference of a circle with constant speed.
+  let chapters =
+    document.querySelectorAll("#chapters .chapter");
 
-</div>  <div class="question">  <b>8. Non-Uniform Circular Motion</b><br>
+  chapters.forEach(function(chapter){
 
-Motion of a particle along the circumference of a circle with variable speed.
+    let text =
+      chapter.innerText.toLowerCase();
 
-</div>  <h3 class="section">Centripetal and Centrifugal Force</h3>  <div class="question">  <b>9. Centripetal Force</b><br>
+    if(text.includes(input)){
+      chapter.style.display = "block";
+    }
+    else{
+      chapter.style.display = "none";
+    }
 
-The force acting on a particle performing circular motion and directed towards the centre is called centripetal force.
+  });
 
-</div>  <div class="formula">  a<sub>c</sub> = v²/r = rω² = vω
+}
 
-<br><br>
+</script>
 
-F<sub>c</sub> = mv²/r = mrω² = mvω
-
-</div>  <div class="question">  <b>10. Centrifugal Force</b><br>
-
-The apparent force acting away from the centre during circular motion is called centrifugal force.
-
-It is a pseudo force.
-
-<br><br>
-
-Its magnitude is equal to the centripetal force.
-
-</div>  <h3 class="section">Vehicle on Horizontal Circular Track</h3>  <div class="question">  For a vehicle moving on a level circular road, static friction provides the centripetal force.
-
-</div>  <div class="formula">  mv²/r = μmg
-
-<br><br>
-
-v<sub>max</sub> = √(μrg)
-
-</div>  <h3 class="section">Banking of Road</h3>  <div class="question">  <b>Banking of road</b> means raising the outer edge of a road above its inner edge through a certain angle.
-
-</div>  <div class="formula">  v = √(rg tanθ)
-
-<br><br>
-
-θ = tan⁻¹(v²/rg)
-
-</div>  <h3 class="section">Moment of Inertia</h3>  <div class="question">  Moment of inertia is the sum of the products of the mass of each particle and the square of its perpendicular distance from the axis of rotation.
-
-</div>  <div class="formula">  I = Σmᵢrᵢ²
-
-<br><br>
-
-I = ∫r²dm
-
-</div>  <div class="question">  <b>SI unit:</b> kg m²
-
-<br>  <b>Dimensions:</b> [ML²T⁰]
-
-</div>  <h3 class="section">Angular Momentum</h3>  <div class="formula">  L = Iω
-
-</div>  <h3 class="section">Torque</h3>  <div class="formula">  τ = Iα
-
-</div>  <h3 class="section">Rotational Kinetic Energy</h3>  <div class="formula">  K = ½Iω²
-
-</div>  <h3 class="section">Conservation of Angular Momentum</h3>  <div class="question">  If the net external torque acting on a body is zero, its angular momentum remains constant.
-
-</div>  <div class="formula">  dL/dt = τ
-
-<br><br>
-
-If τ = 0, then L = constant.
-
-</div>  <h3 class="section">Radius of Gyration</h3>  <div class="formula">  I = MK²
-
-<br><br>
-
-K = √(I/M)
-
-</div>  <h3 class="section">Rolling Motion</h3>  <div class="formula">  KE<sub>roll</sub> = ½Mv² + ½Iω²
-
-<br><br>
-
-ω = v/R
-
-</div>  <h3 class="section">Rotational Kinematic Equations</h3>  <div class="formula">  ω = ω₀ + αt
-
-<br><br>
-
-θ = ω₀t + ½αt²
-
-<br><br>
-
-ω² = ω₀² + 2αθ
-
-</div>  <h3 class="section">Previous Year Questions</h3>  <div class="question">  
-<b>1.</b> State the formula for the moment of inertia of a solid sphere about an axis passing through its centre.  
-<br><small>Sept 2021</small>  
-</div>  <div class="question">  
-<b>2.</b> Calculate the moment of inertia of a uniform disc of mass 10 kg and radius 60 cm about an axis perpendicular to its plane and passing through its centre.  
-<br><small>March 2022</small>  
-</div>  <div class="question">  
-<b>3.</b> If friction is made zero for a road, can a vehicle move safely on this road?  
-<br><small>March 2023</small>  
-</div>  <div class="question">  
-<b>4.</b> State the law of conservation of angular momentum.  
-<br><small>July 2022</small>  
-</div>  <h3>Note Writing – Soham Dhoran</h3>  </div>  <!-- ================= CHAPTER 2 ================= -->  <div id="fluids" class="content">  <button onclick="closeChapter()">← Back to Chapters</button>
-
-<h2>Chapter 2: Mechanical Properties of Fluids</h2>  <p><b>HSC Physics | Maharashtra Board</b></p>  <h3>Fluid</h3>  <p>  
-A fluid is a substance that can flow. Liquids and gases are common examples.  
-</p>  <h3>Ideal Fluid</h3>  <ul>  
-<li>Incompressible</li>  
-<li>Non-viscous</li>  
-<li>Irrotational</li>  
-<li>Steady flow</li>  
-</ul>  <h3>Pressure</h3>  <p>  
-Pressure is the normal force acting per unit area.  
-</p>  <div class="formula">  
-P = F / A  
-</div>  <p><b>SI unit:</b> Pascal (Pa)</p>  <p><b>Dimensions:</b> [ML⁻¹T⁻²]</p>  <h3>Pressure Due to Liquid Column</h3>  <div class="formula">  
-P = hρg  
-</div>  <p>  
-Here h is depth, ρ is density and g is acceleration due to gravity.  
-</p>  <h3>Pascal's Law</h3>  <p>  
-Pressure applied to an enclosed fluid is transmitted equally and undiminished in all directions.  
-</p>  <h3>Applications</h3>  <ul>  
-<li>Hydraulic lift</li>  
-<li>Hydraulic brakes</li>  
-</ul>  <h3>Atmospheric Pressure</h3>  <p>  
-Atmospheric pressure is the pressure produced by the weight of the Earth's atmosphere.  
-</p>  <h3>Gauge Pressure</h3>  <div class="formula">  Gauge Pressure =
-Absolute Pressure − Atmospheric Pressure
-
-</div>  <h3>Surface Tension</h3>  <p>  
-Surface tension is the tangential force acting per unit length on the free surface of a liquid.  
-</p>  <div class="formula">  
-T = F / L  
-</div>  <p><b>SI unit:</b> N/m</p>  <h3>Surface Energy</h3>  <p>  
-Surface energy is the work required to increase the surface area of a liquid surface.  
-</p>  <h3>Angle of Contact</h3>  <p>  
-It is the angle between the tangent to the liquid surface and the solid surface at the point of contact.  
-</p>  <h3>Laplace's Law</h3>  <p>For a liquid drop:</p>  <div class="formula">  
-ΔP = 2T / r  
-</div>  <p>For a soap bubble:</p>  <div class="formula">  
-ΔP = 4T / r  
-</div>  <h3>Capillarity</h3>  <p>  
-The rise or fall of a liquid in a narrow tube is called capillarity.  
-</p>  <h3>Examples</h3>  <ul>  
-<li>Oil rising through a lamp wick</li>  
-<li>Water movement through blotting paper</li>  
-<li>Water movement through soil</li>  
-<li>Rise of water in plants</li>  
-</ul>  <h3>Capillary Rise</h3>  <div class="formula">  
-h = 2T cosθ / (rρg)  
-</div>  <h3>Hydrodynamics</h3>  <p>  
-Hydrodynamics is the study of fluids in motion.  
-</p>  <h3>Streamline Flow</h3>  <p>  
-In streamline flow, fluid particles move smoothly in an orderly manner.  
-</p>  <h3>Turbulent Flow</h3>  <p>  
-Turbulent flow is irregular flow in which velocity can change with time and eddies may form.  
-</p>  <h3>Reynolds Number</h3>  <div class="formula">  
-Rₑ = ρvd / η  
-</div>  <h3>Viscosity</h3>  <p>  
-Viscosity is the property of a fluid that opposes relative motion between its layers.  
-</p>  <h3>Newton's Law of Viscosity</h3>  <div class="formula">  
-F = ηA(dv/dx)  
-</div>  <p><b>SI unit of coefficient of viscosity:</b> Pa·s</p>  <h3>Stokes' Law</h3>  <div class="formula">  
-Fᵥ = 6πηrv  
-</div>  <h3>Terminal Velocity</h3>  <p>  
-The constant velocity reached by a falling body when the forces acting on it become balanced is called terminal velocity.  
-</p>  <div class="formula">  
-vₜ = 2r²(ρ − σ)g / 9η  
-</div>  <h3>Equation of Continuity</h3>  <div class="formula">  
-A₁v₁ = A₂v₂  
-</div>  <div class="formula">  
-Av = Constant  
-</div>  <h3>Important Formulas</h3>  <div class="formula">  P = F/A
-
-<br><br>
-
-P = hρg
-
-<br><br>
-
-T = F/L
-
-<br><br>
-
-ΔP = 2T/r
-
-<br><br>
-
-ΔP = 4T/r
-
-<br><br>
-
-h = 2T cosθ/(rρg)
-
-<br><br>
-
-Rₑ = ρvd/η
-
-<br><br>
-
-Fᵥ = 6πηrv
-
-<br><br>
-
-vₜ = 2r²(ρ−σ)g/(9η)
-
-<br><br>
-
-A₁v₁ = A₂v₂
-
-</div>  <h3>Important Questions</h3>  <ol>  <li>Derive pressure due to a liquid column.</li>  <li>State Pascal's law and explain its applications.</li>  <li>Explain the construction and working of a mercury barometer.</li>  <li>Define surface tension and write its SI unit.</li>  <li>Explain the molecular origin of surface tension.</li>  <li>Derive excess pressure inside a liquid drop.</li>  <li>Derive the expression for capillary rise.</li>  <li>Define viscosity and coefficient of viscosity.</li>  <li>State Newton's law of viscosity.</li>  <li>State Stokes' law.</li>  <li>Derive the expression for terminal velocity.</li>  <li>Derive the equation of continuity.</li>  <li>Differentiate between streamline and turbulent flow.</li>  <li>Define Reynolds number and critical velocity.</li>  </ol>  <h3>Quick Revision</h3>  <ul>  <li>Fluid → substance that can flow.</li>  <li>Pressure → force per unit area.</li>  <li>Pascal's law → pressure is transmitted equally in an enclosed fluid.</li>  <li>Surface tension → force per unit length.</li>  <li>Capillarity → rise or fall of liquid in a narrow tube.</li>  <li>Viscosity → resistance between fluid layers.</li>  <li>Stokes' law → Fᵥ = 6πηrv.</li>  <li>Continuity equation → A₁v₁ = A₂v₂.</li>  </ul>  <hr>  <h3>Note Writing – Soham Dhoran</h3>  </div>  </div>  <footer>  LearnGrow • Physics • Class 12 Maharashtra HSC
-
-<br>  Note Writing – Soham Dhoran
-
-</footer>  <script>  
-  
-function openChapter(id){  
-  
-document.getElementById("chapters").style.display="none";  
-  
-document.querySelectorAll(".content").forEach(function(content){  
-  
-content.style.display="none";  
-  
-});  
-  
-document.getElementById(id).style.display="block";  
-  
-window.scrollTo(0,0);  
-  
-}  
-  
-  
-function closeChapter(){  
-  
-document.querySelectorAll(".content").forEach(function(content){  
-  
-content.style.display="none";  
-  
-});  
-  
-document.getElementById("chapters").style.display="block";  
-  
-window.scrollTo(0,0);  
-  
-}  
-  
-  
-function toggleDark(){  
-  
-document.body.classList.toggle("dark");  
-  
-}  
-  
-  
-function searchChapters(){  
-  
-let input =  
-document.getElementById("search").value.toLowerCase();  
-  
-let chapters =  
-document.querySelectorAll("#chapters .chapter");  
-  
-chapters.forEach(function(chapter){  
-  
-let text =  
-chapter.innerText.toLowerCase();  
-  
-if(text.includes(input)){  
-  
-chapter.style.display="block";  
-  
-}else{  
-  
-chapter.style.display="none";  
-  
-}  
-  
-});  
-  
-}  
-  
-</script>  </body>  
-</html>  
+</body>
+  </html>
