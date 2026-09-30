@@ -252,59 +252,637 @@ specific heat, black body and radiation.
 <!-- CHAPTER 1 -->
 <!-- ================================================= -->
 
+
+<!-- ROTATIONAL DYNAMICS -->
+
 <div id="rotational" class="content">
 
-<button class="back" onclick="closeChapter()">
-← Back to Chapters
-</button>
+<h2>Chapter 1: Rotational Dynamics</h2>
 
-<h2>1. Rotational Dynamics</h2>
+<h3>📖 Core Definitions & Concepts</h3>
 
-<h3 class="section">
-Important Topics
-</h3>
+class="question">
+<b>1. Circular Motion</b><br>
+The motion of an object along the circumference of a circle is called circular motion.
+<br><br>
+Examples: merry-go-round, vehicle taking a turn, satellite around a planet.
+</div>
 
 <div class="question">
+<b>2. Characteristics of Circular Motion</b><br>
+• It is accelerated motion because the direction of velocity continuously changes.<br>
+• It is periodic motion because the particle repeats the same path.
+</div>
 
-<b>Topics:</b>
+<div class="question">
+<b>3. Radius Vector</b><br>
+A vector describing the position of a particle performing circular motion with respect to the centre of the circle.
+</div>
 
+<div class="question">
+<b>4. Angular Displacement</b><br>
+The angle described by the radius vector in a given time at the centre of the circle.
+<br><br>
+SI unit: radian<br>
+It is dimensionless.
+</div>
+
+<div class="formula">
+θ = s / r
+<br>
+s = rθ
+</div>
+
+<div class="question">
+<b>5. Angular Velocity</b><br>
+Angular velocity is the rate of change of angular displacement with respect to time.
+<br><br>
+SI unit: rad/s<br>
+It is a vector quantity.
+</div>
+
+<div class="formula">
+ω = Δθ / Δt
+<br><br>
+v = rω
+</div>
+
+<div class="question">
+<b>6. Angular Acceleration</b><br>
+Angular acceleration is the rate of change of angular velocity with respect to time.
+<br><br>
+SI unit: rad/s2
+</div>
+
+<div class="formula">
+α = Δω / Δt
+</div>
+
+<div class="question">
+<b>7. Uniform Circular Motion</b><br>
+Motion of a particle along the circumference of a circle with constant speed.
+</div>
+
+<div class="question">
+<b>8. Non-Uniform Circular Motion</b><br>
+Motion of a particle along the circumference of a circle with variable speed.
+</div>
+
+
+<h3 class="section">Centripetal and Centrifugal Force</h3>
+
+<div class="question">
+<b>9. Centripetal Force</b><br>
+The force acting on a particle performing circular motion and directed towards the centre is called centripetal force.
+</div>
+
+<div class="formula">
+a<sub>c</sub> = v2/r = rω2 = vω
+<br><br>
+F<sub>c</sub> = mv2/r = mrω2 = mvω
+</div>
+
+<div class="question">
+<b>10. Centrifugal Force</b><br>
+The apparent force acting away from the centre during circular motion is called centrifugal force.
+It is a pseudo force.
+<br><br>
+Its magnitude is equal to the centripetal force.
+</div>
+
+
+<h3 class="section">Vehicle on Horizontal Circular Track</h3>
+
+<div class="question">
+For a vehicle moving on a level circular road, static friction provides the centripetal force.
+</div>
+
+<div class="formula">
+mv2/r = μmg
+<br><br>
+v<sub>max</sub> = √(μrg)
+</div>
+
+
+<h3 class="section">Banking of Road</h3>
+
+<div class="question">
+<b>Banking of road</b> means raising the outer edge of a road above its inner edge through a certain angle.
+</div>
+
+<div class="question">
+<b>Angle of banking</b> is the angle made by the surface of the road with the horizontal.
+</div>
+
+<h3>Maximum Safety Speed with Friction</h3>
+
+<div class="formula">
+v<sub>max</sub> =
+√[rg(tanθ + μ<sub>s</sub>) /
+(1 − μ<sub>s</sub>tanθ)]
+</div>
+
+<h3>Minimum Safety Speed with Friction</h3>
+
+<div class="formula">
+v<sub>min</sub> =
+√[rg(tanθ − μ<sub>s</sub>) /
+(1 + μ<sub>s</sub>tanθ)]
+</div>
+
+<h3>Most Safe Speed</h3>
+
+<div class="formula">
+v = √(rg tanθ)
+<br><br>
+θ = tan⁻1(v2/rg)
+</div>
+
+
+<h3 class="section">Conical Pendulum</h3>
+
+<div class="question">
+A conical pendulum consists of a bob moving in a horizontal circle while the string makes an angle θ with the vertical.
+</div>
+
+<div class="formula">
+T0 cosθ = mg
+<br>
+T0 sinθ = mrω2
+<br>
+ω = √[g/(L cosθ)]
+<br>
+T = 2π√(L cosθ/g)
+</div>
+
+
+<h3 class="section">Vertical Circular Motion</h3>
+
+<div class="question">
+<b>Particle on a string:</b>
+At the topmost position, the minimum speed required to just complete the circle is:
+</div>
+
+<div class="formula">
+v<sub>A,min</sub> = √(rg)
+</div>
+
+<div class="formula">
+v<sub>B,min</sub> = √(5rg)
+<br><br>
+v<sub>D</sub> = √(3rg)
+</div>
+
+<div class="question">
+For vertical circular motion using a rigid rod:
+</div>
+
+<div class="formula">
+v<sub>A,min</sub> = 0
+<br>
+v<sub>B,min</sub> = 2√(rg)
+</div>
+
+
+<h3 class="section">Rigid Body, Axis, Torque and Couple</h3>
+
+<div class="question">
+<b>Rigid Body:</b> A body whose geometrical shape and size remain unchanged under an external force.
 <br><br>
 
-• Angular displacement<br>
-• Angular velocity<br>
-• Angular acceleration<br>
-• Torque<br>
-• Moment of inertia<br>
-• Radius of gyration<br>
-• Angular momentum<br>
-• Rotational kinetic energy<br>
-• Conservation of angular momentum
+<b>Axis of Rotation:</b> A straight line about which the particles of a rigid body move in circles.
+<br><br>
 
+<b>Torque:</b> The turning effect of a force about an axis.
+<br><br>
+
+<b>Couple:</b> Two equal and opposite forces acting at different points of a body and producing rotational motion.
 </div>
 
 
-<h3 class="section">
-Important Formulae
-</h3>
+<h3 class="section">Moment of Inertia</h3>
 
-<div class="formula">
-ω = θ / t
+<div class="question">
+Moment of inertia is the sum of the products of the mass of each particle and the square of its perpendicular distance from the axis of rotation.
 </div>
 
 <div class="formula">
-τ = Iα
+I = Σmᵢrᵢ2
+<br><br>
+I = ∫r2dm
+</div>
+
+<div class="question">
+<b>SI unit:</b> kg m2
+<br>
+<b>Dimensions:</b> [ML2T0]
+</div>
+
+<h3>Factors Affecting Moment of Inertia</h3>
+
+<div class="question">
+1. Mass of the body<br>
+2. Shape and size of the body<br>
+3. Distribution of mass about the axis<br>
+4. Position and orientation of the axis
+</div>
+
+
+<h3 class="section">Moment of Inertia of Ring</h3>
+
+<div class="formula">
+I = MR2
+</div>
+
+<h3>Moment of Inertia of Disc</h3>
+
+<div class="formula">
+I = ½MR2
+</div>
+
+
+<h3 class="section">Angular Momentum</h3>
+
+<div class="question">
+Angular momentum of a rotating body is the product of its moment of inertia and angular velocity.
 </div>
 
 <div class="formula">
 L = Iω
 </div>
 
+
+<h3 class="section">Torque in Terms of Moment of Inertia</h3>
+
 <div class="formula">
-K.E. = 1/2 Iω²
+τ = Iα
 </div>
+
+
+<h3 class="section">Rotational Kinetic Energy</h3>
+
+<div class="question">
+The kinetic energy of a rotating body is:
+</div>
+
+<div class="formula">
+K = ½Iω2
+</div>
+
+
+<h3 class="section">Theorem of Perpendicular Axes</h3>
+
+<div class="question">
+For a plane lamina, the moment of inertia about an axis perpendicular to its plane is equal to the sum of the moments of inertia about two mutually perpendicular axes lying in its plane.
+</div>
+
+<div class="formula">
+I<sub>z</sub> = I<sub>x</sub> + I<sub>y</sub>
+</div>
+
+
+<h3 class="section">Theorem of Parallel Axes</h3>
+
+<div class="question">
+The moment of inertia about any axis is equal to the moment of inertia about a parallel axis passing through the centre of mass plus Mh2.
+</div>
+
+<div class="formula">
+I<sub>O</sub> = I<sub>C</sub> + Mh2
+</div>
+
+
+<h3 class="section">Conservation of Angular Momentum</h3>
+
+<div class="question">
+If the net external torque acting on a body is zero, its angular momentum remains constant.
+</div>
+
+<div class="formula">
+dL/dt = τ
+<br><br>
+If τ = 0, then L = constant.
+</div>
+
+<div class="question">
+Examples include ballet dancers, skaters, divers and acrobats.
+</div>
+
+
+<h3 class="section">Radius of Gyration</h3>
+
+<div class="question">
+Radius of gyration is the distance from the axis at which the whole mass of a body may be assumed to be concentrated without changing its moment of inertia.
+</div>
+
+<div class="formula">
+I = MK2
+<br><br>
+K = √(I/M)
+</div>
+
+<div class="question">
+<b>SI unit:</b> metre<br>
+<b>Dimension:</b> [L]
+</div>
+
+
+<h3 class="section">Rolling Motion</h3>
+
+<div class="question">
+Rolling motion is a combination of pure translational and pure rotational motion without slipping.
+</div>
+
+<div class="formula">
+KE<sub>roll</sub>
+= ½Mv2 + ½Iω2
+<br><br>
+ω = v/R
+</div>
+
+<div class="formula">
+KE<sub>roll</sub>
+= ½Mv2(1 + K2/R2)
+</div>
+
+<h3>Rolling Down an Inclined Plane</h3>
+
+<div class="formula">
+v = √[2gh/(1 + K2/R2)]
+<br><br>
+a = g sinθ/(1 + K2/R2)
+</div>
+
+
+<h3 class="section">Rotational Kinematic Equations</h3>
+
+<div class="formula">
+ω = ω0 + αt
+<br><br>
+θ = ω0t + ½αt2
+<br><br>
+ω2 = ω02 + 2αθ
+</div>
+
+<h3>Translational Equations</h3>
+
+<div class="formula">
+v = u + at
+<br><br>
+s = ut + ½at2
+<br><br>
+v2 = u2 + 2as
+</div>
+
+
+<!-- PYQ -->
+
+<h3 class="section">⭐ Previous Year Questions — Section A</h3>
+
+<div class="question">
+<b>1.</b> State the formula for the moment of inertia of a solid sphere about an axis passing through its centre. <br>
+<small>Sept 2021</small>
+</div>
+
+<div class="question">
+<b>2.</b> Calculate the moment of inertia of a uniform disc of mass 10 kg and radius 60 cm about an axis perpendicular to its plane and passing through its centre. <br>
+<small>March 2022</small>
+</div>
+
+<div class="question">
+<b>3.</b> If friction is made zero for a road, can a vehicle move safely on this road? <br>
+<small>March 2023</small>
+</div>
+
+<div class="question">
+<b>4.</b> State the law of conservation of angular momentum. <br>
+<small>July 2022</small>
+</div>
+
+<div class="question">
+<b>5.</b> Define centripetal force. <br>
+<small>February 2024</small>
+</div>
+
+<div class="question">
+<b>6.</b> What is the radius of gyration of a solid sphere of radius R about its diameter? <br>
+<small>July 2024</small>
+</div>
+
+<div class="question">
+<b>7.</b> State the formula for angle of banking. <br>
+<small>February 2025</small>
+</div>
+
+<div class="question">
+<b>8.</b> A metal ring of 20 cm is rotated about a transverse axis passing through its centre. What will be its radius of gyration about the same axis? <br>
+<small>June 2025</small>
+</div>
+
+
+<h3 class="section">⭐ Previous Year Questions — Section B</h3>
+
+<div class="question">
+<b>1.</b> A motorcyclist undertakes horizontal circles inside a cylindrical wall of a well of inner radius 4 m. The coefficient of static friction is 0.2. Calculate the minimum speed and period.
+<br><small>Sept 2021</small>
+</div>
+
+<div class="question">
+<b>2.</b> Define moment of inertia of a rotating rigid body. State its SI unit and dimensions.
+<br><small>March 2022</small>
+</div>
+
+<div class="question">
+<b>3.</b> State and prove the principle of conservation of angular momentum.
+<br><small>March 2023</small>
+</div>
+
+<div class="question">
+<b>4.</b> The surface density of a uniform disc of radius 10 cm is 2 kg/m2. Find its moment of inertia about an axis through its centre and perpendicular to its plane.
+<br><small>July 2022</small>
+</div>
+
+<div class="question">
+<b>5.</b> A motorcyclist performs a stunt along the cylindrical wall of a Well of Death of inner radius 4 m. The coefficient of static friction is 0.4. Calculate the maximum period of revolution. Use g = 10 m/s2.
+<br><small>June 2023</small>
+</div>
+
+<div class="question">
+<b>6.</b> Derive an expression for the maximum speed of a vehicle moving along a horizontal circular track.
+<br><small>February 2024</small>
+</div>
+
+
+<h3 class="section">⭐ Previous Year Questions — Section C</h3>
+
+<div class="question">
+<b>1.</b> Derive an expression for the kinetic energy of a body rotating with uniform angular speed.
+<br><small>March 2022</small>
+</div>
+
+<div class="question">
+<b>2.</b> Derive an expression for kinetic energy of a rotating body.
+<br><small>July 2022</small>
+</div>
+
+<div class="question">
+<b>3.</b> The radius of a circular track is 200 m. Find the angle of banking if the maximum safe speed is 25 m/s.
+<br><small>February 2024</small>
+</div>
+
+<div class="question">
+<b>4.</b> A flywheel of a motor has mass 100 kg and radius 1.5 m. The motor develops a constant torque of 2000 Nm. The flywheel starts from rest. Calculate the work done during the first 4 revolutions.
+<br><small>February 2025</small>
+</div>
+
+<div class="question">
+<b>5.</b> Obtain an expression for torque acting on a rigid body rotating with constant angular acceleration.
+<br><small>June 2025</small>
+</div>
+
+
+<h3 class="section">⭐ Previous Year Questions — Section D</h3>
+
+<div class="question">
+<b>1.</b> Using the principle of conservation of energy, derive the expression for minimum speeds at different locations along vertical circular motion controlled by gravity.
+<br><small>Sept 2021</small>
+</div>
+
+<div class="question">
+<b>2.</b> Derive expressions for linear velocity at the lowest, midway and topmost positions for a particle revolving in a vertical circle if it just completes the motion without string slackening.
+<br><small>March 2023</small>
+</div>
+
+<div class="question">
+<b>3.</b> State and prove the theorem of parallel axes.
+<br><small>June 2023</small>
+</div>
+
+<div class="question">
+<b>4.</b> Derive an expression for minimum speed to perform a stunt in a Well of Death. A racing track has radius of curvature 288 m and vehicles should not exceed 216 km/h. Find the angle through which the road should be tilted.
+<br><small>July 2024</small>
+</div>
+
+
+<h3 class="section">📝 Practice MCQs</h3>
+
+<div class="question">
+<b>1. The SI unit of moment of inertia is:</b><br>
+A) kg m<br>
+B) kg m2<br>
+C) N m<br>
+D) J<br><br>
+<b>Answer: B) kg m2</b>
+</div>
+
+<div class="question">
+<b>2. Angular momentum is given by:</b><br>
+A) mv<br>
+B) Iω<br>
+C) ma<br>
+D) Iα<br><br>
+<b>Answer: B) Iω</b>
+</div>
+
+<div class="question">
+<b>3. Rotational kinetic energy is:</b><br>
+A) ½mv2<br>
+B) mgh<br>
+C) ½Iω2<br>
+D) Fd<br><br>
+<b>Answer: C) ½Iω2</b>
+</div>
+
+<div class="question">
+<b>4. The rotational equivalent of mass is:</b><br>
+A) Torque<br>
+B) Angular velocity<br>
+C) Moment of inertia<br>
+D) Angular acceleration<br><br>
+<b>Answer: C) Moment of inertia</b>
+</div>
+
+<div class="question">
+<b>5. If external torque is zero, which quantity remains conserved?</b><br>
+A) Force<br>
+B) Linear velocity<br>
+C) Angular momentum<br>
+D) Acceleration<br><br>
+<b>Answer: C) Angular momentum</b>
+</div>
+
+
+<h3 class="section">🔄 Quick Revision</h3>
+
+<div class="question">
+<b>Remember these formulas:</b><br><br>
+
+θ = s/r<br>
+ω = Δθ/Δt<br>
+α = Δω/Δt<br>
+v = rω<br>
+a<sub>c</sub> = v2/r = rω2<br>
+F<sub>c</sub> = mv2/r<br>
+τ = Iα<br>
+L = Iω<br>
+K = ½Iω2<br>
+I = Σmr2<br>
+I = MK2<br>
+I<sub>O</sub> = I<sub>C</sub> + Mh2<br>
+I<sub>z</sub> = I<sub>x</sub> + I<sub>y</sub><br>
+v<sub>max</sub> = √(μrg)<br>
+v = √(rg tanθ)<br>
+KE<sub>rolling</sub> = ½Mv2 + ½Iω2
+</div>
+
+<button class="back" onclick="closeChapter()">
+← Back to Physics Chapters
+</button>
 
 </div>
 
+</div>
+
+<footer>
+Developed by Soham Dhoran<br>
+LearnGrow © 2026
+</footer>
+
+
+<script>
+
+function openChapter(id){
+  document.getElementById("chapters").style.display="none";
+  document.getElementById(id).style.display="block";
+  window.scrollTo(0,0);
+}
+
+function closeChapter(){
+  document.getElementById("rotational").style.display="none";
+  document.getElementById("chapters").style.display="block";
+  window.scrollTo(0,0);
+}
+
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+
+function searchChapters(){
+  let input=document.getElementById("search").value.toLowerCase();
+  let chapters=document.querySelectorAll(".chapter");
+
+  chapters.forEach(function(chapter){
+    let text=chapter.innerText.toLowerCase();
+
+    chapter.style.display =
+      text.includes(input) ? "block" : "none";
+  });
+}
+
+</script>
+
+</body>
+</html>
 
 <!-- ================================================= -->
 <!-- CHAPTER 2 -->
